@@ -1,0 +1,87 @@
+# --------------------------------------- #
+#    C2C's Universal GIT Ignore File      #
+# - - - - - - - - - - - - - - - - - - - - #
+#  Version  : 1.1                         #
+#  Author   : Luke Chavers                #
+#  Created  : Monday, Jan 26th, 2015      #
+#  Based On : https://www.gitignore.io    #
+# - - - - - - - - - - - - - - - - - - - - #
+#     http://git.c2c.local/snippets/3     #
+# - - - - - - - - - - - - - - - - - - - - #
+#  This .gitignore file is pretty robust  #
+# and should be appropriate for most, if  #
+#         not all, C2C projects.          #
+# --------------------------------------- #
+
+# -- Generic / Misc ----------------------#
+
+.tmp
+pids
+logs
+results
+lib-cov
+*.seed
+*.log
+*.dat
+*.out
+*.pid
+*.gz
+
+# -- Node.js -----------------------------#
+
+node_modules
+
+# -- Bower.io --------------------------- #
+
+bower_components
+
+# -- NPM -------------------------------- #
+
+npm-debug.log
+
+# -- Common Editors --------------------- #
+
+*~
+*#
+.DS_STORE
+.netbeans
+nbproject
+
+# -- IntelliJ / phpStorm / webStorm ----- #
+
+.idea/
+*.iml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+*.ipr
+*.iws
+.idea_modules/
+atlassian-ide-plugin.xml
+
+# -- Common Render / Output Dirs -------- #
+
+out/
+docs/
+dist/bower_components
+
+# -- Vagrant ---------------------------- #
+
+.vagrant
+
+# -- C2C Authentication ----------------- #
+
+auth/*.tar.gz
+
+# -- Common C2C Patterns ---------------- #
+
+/docs/api
+*.depr.*
+*/backup/*
+tmp/
+
+# -- Project Specific ------------------- #
+
+ciel-wiki/
+archive/
+=====================================

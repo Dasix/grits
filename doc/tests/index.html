@@ -1,0 +1,455 @@
+    <section class="suite">
+      <h1>DustJS Renderer</h1>
+      <dl>
+        <section class="suite">
+          <h1>Renderering</h1>
+          <dl>
+            <section class="suite">
+              <h1>Basic HTML Renderering</h1>
+              <dl>
+(  log.verbosity          ) Verbose logging has been ENABLED
+(  config.paths.clear     ) Clearing *ALL* renderer configuration paths..
+(  config.paths.init      ) Initializing the path configuration object for: root
+(  config.paths.clear     ) Clearing configuration paths for: root
+(  config.paths.init      ) Initializing the path configuration object for: helper
+(  config.paths.clear     ) Clearing configuration paths for: helper
+(  config.paths.init      ) Initializing the path configuration object for: handler
+(  config.paths.clear     ) Clearing configuration paths for: handler
+(  config.paths.init      ) Initializing the path configuration object for: filter
+(  config.paths.clear     ) Clearing configuration paths for: filter
+(  config.paths.init      ) Initializing the path configuration object for: partial
+(  config.paths.clear     ) Clearing configuration paths for: partial
+(  config.paths.init      ) Initializing the path configuration object for: layout
+(  config.paths.clear     ) Clearing configuration paths for: layout
+(  config.paths.init      ) Initializing the path configuration object for: content
+(  config.paths.clear     ) Clearing configuration paths for: content
+(  config.paths.init      ) Initializing the path configuration object for: data
+(  config.paths.clear     ) Clearing configuration paths for: data
+(  config.paths.init      ) Initializing the path configuration object for: output
+(  config.paths.clear     ) Clearing configuration paths for: output
+(  config.paths.add       ) Adding a path of type: root
+(  config.paths.add       )    => /project/test/fixtures/content/root-main
+(  config.paths.auto      ) Automatically adding a 'DustJS Helper Function Path' as a root subdirectory
+(  config.paths.add       ) Adding a path of type: helper
+(  config.paths.add       )    => /project/test/fixtures/content/root-main/helpers
+(  config.paths.auto      ) Automatically adding a 'DustJS Handler Function Path' as a root subdirectory
+(  config.paths.add       ) Adding a path of type: handler
+(  config.paths.add       )    => /project/test/fixtures/content/root-main/handlers
+(  config.paths.auto      ) Automatically adding a 'DustJS Filter Function Path' as a root subdirectory
+(  config.paths.add       ) Adding a path of type: filter
+(  config.paths.add       )    => /project/test/fixtures/content/root-main/filters
+(  config.paths.auto      ) Automatically adding a 'DustJS Partial Path' as a root subdirectory
+(  config.paths.add       ) Adding a path of type: partial
+(  config.paths.add       )    => /project/test/fixtures/content/root-main/partials
+(  config.paths.auto      ) Automatically adding a 'DustJS Layout Path' as a root subdirectory
+(  config.paths.add       ) Adding a path of type: layout
+(  config.paths.add       )    => /project/test/fixtures/content/root-main/layouts
+(  config.paths.auto      ) Automatically adding a 'Content Source Path' as a root subdirectory
+(  config.paths.add       ) Adding a path of type: content
+(  config.paths.add       )    => /project/test/fixtures/content/root-main/content
+(  config.paths.auto      ) Automatically adding a 'Data Source Path' as a root subdirectory
+(  config.paths.add       ) Adding a path of type: data
+(  config.paths.add       )    => /project/test/fixtures/content/root-main/data
+(  config.paths.auto      ) Automatically adding a 'Render Output Path' as a root subdirectory
+(  config.paths.add       ) Adding a path of type: output
+(  config.paths.add       )    => /project/test/fixtures/content/root-main/output
+(  render                 ) A render operation has started..
+(  log.verbosity          ) Verbose logging has been ENABLED
+(  renderer.scan          ) Scanning for files in 'DustJS Helper Function Path' (short: helper)
+(  fsl.scan.start         ) - /project/test/fixtures/content/root-main/helpers/**/*.js [START]
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/helpers/**/*.js => yell.js
+(  fsl.scan.complete      ) - /project/test/fixtures/content/root-main/helpers/**/*.js [COMPLETE]
+(  fsl.scan               ) All complete
+(  helper.load            ) Loading helper function ..
+(  helper.load            )  -> Source      : /project/test/fixtures/content/root-main/helpers/yell.js
+(  helper.load            )  -> Helper Name : {@yell}
+(  log.verbosity          ) Verbose logging has been ENABLED
+(  renderer.scan          ) Scanning for files in 'DustJS Handler Function Path' (short: handler)
+(  fsl.scan.start         ) - /project/test/fixtures/content/root-main/handlers/**/*.js [START]
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/handlers/**/*.js => login.js
+(  fsl.scan.complete      ) - /project/test/fixtures/content/root-main/handlers/**/*.js [COMPLETE]
+(  fsl.scan               ) All complete
+(  handler.load           ) Loading handler function ..
+(  handler.load           )  -> Source       : /project/test/fixtures/content/root-main/handlers/login.js
+(  handler.load           )  -> Handler Name : context.login()
+(  log.verbosity          ) Verbose logging has been ENABLED
+(  renderer.scan          ) Scanning for files in 'DustJS Filter Function Path' (short: filter)
+(  fsl.scan.start         ) - /project/test/fixtures/content/root-main/filters/**/*.js [START]
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/filters/**/*.js => unicorn.js
+(  fsl.scan.complete      ) - /project/test/fixtures/content/root-main/filters/**/*.js [COMPLETE]
+(  fsl.scan               ) All complete
+(  filter.load            ) Loading filter function ..
+(  filter.load            )  -> Source       : /project/test/fixtures/content/root-main/filters/unicorn.js
+(  filter.load            )  -> Filter Name : |unicorn
+(  log.verbosity          ) Verbose logging has been ENABLED
+(  renderer.scan          ) Scanning for files in 'Data Source Path' (short: data)
+(  fsl.scan.start         ) - /project/test/fixtures/content/root-main/data/**/*.json [START]
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/data/**/*.json => aggregation/test.json
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/data/**/*.json => test.json
+(  fsl.scan.complete      ) - /project/test/fixtures/content/root-main/data/**/*.json [COMPLETE]
+(  fsl.scan               ) All complete
+(  data.load              ) Loading Data File
+(  data.load              )  -> Source    : /project/test/fixtures/content/root-main/data/aggregation/test.json
+(  data.load              ) Loading Data File
+(  data.load              )  -> Source    : /project/test/fixtures/content/root-main/data/test.json
+(  log.verbosity          ) Verbose logging has been ENABLED
+(  renderer.scan          ) Scanning for files in 'DustJS Partial Path' (short: partial)
+(  fsl.scan.start         ) - /project/test/fixtures/content/root-main/partials/**/*.dust [START]
+(  fsl.scan.start         ) - /project/test/fixtures/content/root-main/partials/**/*.md [START]
+(  fsl.scan.start         ) - /project/test/fixtures/content/root-main/partials/**/*.html [START]
+(  fsl.scan.complete      ) - /project/test/fixtures/content/root-main/partials/**/*.md [COMPLETE]
+(  fsl.scan.complete      ) - /project/test/fixtures/content/root-main/partials/**/*.html [COMPLETE]
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/partials/**/*.dust => markdown-to-html.md.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/partials/**/*.dust => simple-html.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/partials/**/*.dust => simple.dust
+(  fsl.scan.complete      ) - /project/test/fixtures/content/root-main/partials/**/*.dust [COMPLETE]
+(  fsl.scan               ) All complete
+(  compile.partial        ) Compiling partial..
+(  compile.partial        )  -> Source    : /project/test/fixtures/content/root-main/partials/markdown-to-html.md.dust
+(  compile.partial        )  -> Long Name : partial/markdown-to-html
+(  markdown.parse         )  -> [ Parsing Markdown for Template: 'partial/markdown-to-html'
+(  markdown.parse         )       -> Instantiating Markdown Parser
+(  markdown.parse         )       -> Source Markdown: 54 bytes
+(  markdown.parse         )       -> Resulting HTML : 60 bytes
+(  compile.template       )  -> [ Compiling template: 'partial/markdown-to-html' ]
+(  compile.partial        ) Compiling partial..
+(  compile.partial        )  -> Source    : /project/test/fixtures/content/root-main/partials/simple-html.dust
+(  compile.partial        )  -> Long Name : partial/simple-html
+(  compile.template       )  -> [ Compiling template: 'partial/simple-html' ]
+(  compile.partial        ) Compiling partial..
+(  compile.partial        )  -> Source    : /project/test/fixtures/content/root-main/partials/simple.dust
+(  compile.partial        )  -> Long Name : partial/simple
+(  compile.template       )  -> [ Compiling template: 'partial/simple' ]
+(  log.verbosity          ) Verbose logging has been ENABLED
+(  renderer.scan          ) Scanning for files in 'DustJS Layout Path' (short: layout)
+(  fsl.scan.start         ) - /project/test/fixtures/content/root-main/layouts/**/*.dust [START]
+(  fsl.scan.start         ) - /project/test/fixtures/content/root-main/layouts/**/*.md [START]
+(  fsl.scan.start         ) - /project/test/fixtures/content/root-main/layouts/**/*.html [START]
+(  fsl.scan.complete      ) - /project/test/fixtures/content/root-main/layouts/**/*.md [COMPLETE]
+(  fsl.scan.complete      ) - /project/test/fixtures/content/root-main/layouts/**/*.html [COMPLETE]
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/layouts/**/*.dust => basic.html.dust
+(  fsl.scan.complete      ) - /project/test/fixtures/content/root-main/layouts/**/*.dust [COMPLETE]
+(  fsl.scan               ) All complete
+(  compile.layout         ) Compiling layout..
+(  compile.layout         )  -> Source    : /project/test/fixtures/content/root-main/layouts/basic.html.dust
+(  compile.layout         )  -> Long Name : layout/basic
+(  compile.template       )  -> [ Compiling template: 'layout/basic' ]
+(  log.verbosity          ) Verbose logging has been ENABLED
+(  renderer.scan          ) Scanning for files in 'Content Source Path' (short: content)
+(  fsl.scan.start         ) - /project/test/fixtures/content/root-main/content/**/*.dust [START]
+(  fsl.scan.start         ) - /project/test/fixtures/content/root-main/content/**/*.md [START]
+(  fsl.scan.start         ) - /project/test/fixtures/content/root-main/content/**/*.html [START]
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => basic-a.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => content-inclusion.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => content-partial/test.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => context-dump.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => data-inclusion.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => filter-unicorn.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => front-matter/basic-local.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => front-matter/basic-remote.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => handler-login.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => helper-yell.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => layouts/basic-default.html.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => layouts/html-test.html.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => layouts/markdown-test.md.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => markdown/html-inclusion.md.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => markdown/markdown-inclusion.html.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => partial-inclusion.dust
+(  fsl.scan.complete      ) - /project/test/fixtures/content/root-main/content/**/*.dust [COMPLETE]
+(  fsl.scan.complete      ) - /project/test/fixtures/content/root-main/content/**/*.md [COMPLETE]
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.html => layouts/basic-inline-test.html
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.html => markdown/basic.md.html
+(  fsl.scan.complete      ) - /project/test/fixtures/content/root-main/content/**/*.html [COMPLETE]
+(  fsl.scan               ) All complete
+(  compile.content        ) Compiling content file..
+(  compile.content        )  -> Source    : /project/test/fixtures/content/root-main/content/basic-a.dust
+(  compile.content        )  -> Long Name : basic-a
+(  parse.matter           )  -> [ Checking template: 'basic-a' for front-matter]
+(  compile.template       )  -> [ Compiling template: 'basic-a' ]
+(  compile.content        ) Compiling content file..
+(  compile.content        )  -> Source    : /project/test/fixtures/content/root-main/content/content-inclusion.dust
+(  compile.content        )  -> Long Name : content-inclusion
+(  parse.matter           )  -> [ Checking template: 'content-inclusion' for front-matter]
+(  compile.template       )  -> [ Compiling template: 'content-inclusion' ]
+(  compile.content        ) Compiling content file..
+(  compile.content        )  -> Source    : /project/test/fixtures/content/root-main/content/content-partial/test.dust
+(  compile.content        )  -> Long Name : content-partial/test
+(  parse.matter           )  -> [ Checking template: 'content-partial/test' for front-matter]
+(  compile.template       )  -> [ Compiling template: 'content-partial/test' ]
+(  compile.content        ) Compiling content file..
+(  compile.content        )  -> Source    : /project/test/fixtures/content/root-main/content/context-dump.dust
+(  compile.content        )  -> Long Name : context-dump
+(  parse.matter           )  -> [ Checking template: 'context-dump' for front-matter]
+(  compile.template       )  -> [ Compiling template: 'context-dump' ]
+(  compile.content        ) Compiling content file..
+(  compile.content        )  -> Source    : /project/test/fixtures/content/root-main/content/data-inclusion.dust
+(  compile.content        )  -> Long Name : data-inclusion
+(  parse.matter           )  -> [ Checking template: 'data-inclusion' for front-matter]
+(  compile.template       )  -> [ Compiling template: 'data-inclusion' ]
+(  compile.content        ) Compiling content file..
+(  compile.content        )  -> Source    : /project/test/fixtures/content/root-main/content/filter-unicorn.dust
+(  compile.content        )  -> Long Name : filter-unicorn
+(  parse.matter           )  -> [ Checking template: 'filter-unicorn' for front-matter]
+(  compile.template       )  -> [ Compiling template: 'filter-unicorn' ]
+(  compile.content        ) Compiling content file..
+(  compile.content        )  -> Source    : /project/test/fixtures/content/root-main/content/front-matter/basic-local.dust
+(  compile.content        )  -> Long Name : front-matter/basic-local
+(  parse.matter           )  -> [ Checking template: 'front-matter/basic-local' for front-matter]
+(  compile.template       )  -> [ Compiling template: 'front-matter/basic-local' ]
+(  compile.content        ) Compiling content file..
+(  compile.content        )  -> Source    : /project/test/fixtures/content/root-main/content/front-matter/basic-remote.dust
+(  compile.content        )  -> Long Name : front-matter/basic-remote
+(  parse.matter           )  -> [ Checking template: 'front-matter/basic-remote' for front-matter]
+(  compile.template       )  -> [ Compiling template: 'front-matter/basic-remote' ]
+(  compile.content        ) Compiling content file..
+(  compile.content        )  -> Source    : /project/test/fixtures/content/root-main/content/handler-login.dust
+(  compile.content        )  -> Long Name : handler-login
+(  parse.matter           )  -> [ Checking template: 'handler-login' for front-matter]
+(  compile.template       )  -> [ Compiling template: 'handler-login' ]
+(  compile.content        ) Compiling content file..
+(  compile.content        )  -> Source    : /project/test/fixtures/content/root-main/content/helper-yell.dust
+(  compile.content        )  -> Long Name : helper-yell
+(  parse.matter           )  -> [ Checking template: 'helper-yell' for front-matter]
+(  compile.template       )  -> [ Compiling template: 'helper-yell' ]
+(  compile.content        ) Compiling content file..
+(  compile.content        )  -> Source    : /project/test/fixtures/content/root-main/content/layouts/basic-default.html.dust
+(  compile.content        )  -> Long Name : layouts/basic-default
+(  parse.matter           )  -> [ Checking template: 'layouts/basic-default' for front-matter]
+(  compile.template       )  -> [ Compiling template: 'layouts/basic-default' ]
+(  compile.content        ) Compiling content file..
+(  compile.content        )  -> Source    : /project/test/fixtures/content/root-main/content/layouts/html-test.html.dust
+(  compile.content        )  -> Long Name : layouts/html-test
+(  parse.matter           )  -> [ Checking template: 'layouts/html-test' for front-matter]
+(  layout.apply           )       -> Applying layout 'layout/basic' to a HTML content file
+(  compile.template       )  -> [ Compiling template: 'layouts/html-test' ]
+(  compile.content        ) Compiling content file..
+(  compile.content        )  -> Source    : /project/test/fixtures/content/root-main/content/layouts/markdown-test.md.dust
+(  compile.content        )  -> Long Name : layouts/markdown-test
+(  parse.matter           )  -> [ Checking template: 'layouts/markdown-test' for front-matter]
+(  layout.apply           )       -> Applying layout 'layout/basic' to a Markdown content file
+(  markdown.parse         )  -> [ Parsing Markdown for Template: 'layouts/markdown-test'
+(  markdown.parse         )       -> Source Markdown: 94 bytes
+(  markdown.parse         )       -> Resulting HTML : 90 bytes
+(  compile.template       )  -> [ Compiling template: 'layouts/markdown-test' ]
+(  compile.content        ) Compiling content file..
+(  compile.content        )  -> Source    : /project/test/fixtures/content/root-main/content/markdown/html-inclusion.md.dust
+(  compile.content        )  -> Long Name : markdown/html-inclusion
+(  parse.matter           )  -> [ Checking template: 'markdown/html-inclusion' for front-matter]
+(  markdown.parse         )  -> [ Parsing Markdown for Template: 'markdown/html-inclusion'
+(  markdown.parse         )       -> Source Markdown: 70 bytes
+(  markdown.parse         )       -> Resulting HTML : 85 bytes
+(  compile.template       )  -> [ Compiling template: 'markdown/html-inclusion' ]
+(  compile.content        ) Compiling content file..
+(  compile.content        )  -> Source    : /project/test/fixtures/content/root-main/content/markdown/markdown-inclusion.html.dust
+(  compile.content        )  -> Long Name : markdown/markdown-inclusion
+(  parse.matter           )  -> [ Checking template: 'markdown/markdown-inclusion' for front-matter]
+(  compile.template       )  -> [ Compiling template: 'markdown/markdown-inclusion' ]
+(  compile.content        ) Compiling content file..
+(  compile.content        )  -> Source    : /project/test/fixtures/content/root-main/content/partial-inclusion.dust
+(  compile.content        )  -> Long Name : partial-inclusion
+(  parse.matter           )  -> [ Checking template: 'partial-inclusion' for front-matter]
+(  compile.template       )  -> [ Compiling template: 'partial-inclusion' ]
+(  compile.content        ) Compiling content file..
+(  compile.content        )  -> Source    : /project/test/fixtures/content/root-main/content/layouts/basic-inline-test.html
+(  compile.content        )  -> Long Name : layouts/basic-inline-test
+(  parse.matter           )  -> [ Checking template: 'layouts/basic-inline-test' for front-matter]
+(  compile.template       )  -> [ Compiling template: 'layouts/basic-inline-test' ]
+(  compile.content        ) Compiling content file..
+(  compile.content        )  -> Source    : /project/test/fixtures/content/root-main/content/markdown/basic.md.html
+(  compile.content        )  -> Long Name : markdown/basic
+(  parse.matter           )  -> [ Checking template: 'markdown/basic' for front-matter]
+(  markdown.parse         )  -> [ Parsing Markdown for Template: 'markdown/basic'
+(  markdown.parse         )       -> Source Markdown: 29 bytes
+(  markdown.parse         )       -> Resulting HTML : 55 bytes
+(  compile.template       )  -> [ Compiling template: 'markdown/basic' ]
+(  log.verbosity          ) Verbose logging has been ENABLED
+(  renderer.scan          ) Scanning for files in 'Content Source Path' (short: content)
+(  fsl.scan.start         ) - /project/test/fixtures/content/root-main/content/**/*.dust [START]
+(  fsl.scan.start         ) - /project/test/fixtures/content/root-main/content/**/*.md [START]
+(  fsl.scan.start         ) - /project/test/fixtures/content/root-main/content/**/*.html [START]
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => basic-a.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => content-inclusion.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => content-partial/test.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => context-dump.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => data-inclusion.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => filter-unicorn.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => front-matter/basic-local.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => front-matter/basic-remote.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => handler-login.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => helper-yell.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => layouts/basic-default.html.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => layouts/html-test.html.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => layouts/markdown-test.md.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => markdown/html-inclusion.md.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => markdown/markdown-inclusion.html.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.dust => partial-inclusion.dust
+(  fsl.scan.complete      ) - /project/test/fixtures/content/root-main/content/**/*.dust [COMPLETE]
+(  fsl.scan.complete      ) - /project/test/fixtures/content/root-main/content/**/*.md [COMPLETE]
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.html => layouts/basic-inline-test.html
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/*.html => markdown/basic.md.html
+(  fsl.scan.complete      ) - /project/test/fixtures/content/root-main/content/**/*.html [COMPLETE]
+(  fsl.scan               ) All complete
+(  render.content         ) Rendering content file..
+(  render.content         )  -> Source    : /project/test/fixtures/content/root-main/content/basic-a.dust
+(  render.content         )  -> Name      : basic-a
+(  render.content         )  -> Long Name : basic-a
+(  render.content         )  -> Dest      : /project/test/fixtures/content/root-main/output/basic-a.html
+(  render.content         )  -> [ Writing file: /project/test/fixtures/content/root-main/output/basic-a.html (284 bytes) ]
+(  render.content         ) Rendering content file..
+(  render.content         )  -> Source    : /project/test/fixtures/content/root-main/content/content-inclusion.dust
+(  render.content         )  -> Name      : content-inclusion
+(  render.content         )  -> Long Name : content-inclusion
+(  render.content         )  -> Dest      : /project/test/fixtures/content/root-main/output/content-inclusion.html
+(  render.content         )  -> [ Writing file: /project/test/fixtures/content/root-main/output/content-inclusion.html (389 bytes) ]
+(  render.content         ) Rendering content file..
+(  render.content         )  -> Source    : /project/test/fixtures/content/root-main/content/content-partial/test.dust
+(  render.content         )  -> Name      : test
+(  render.content         )  -> Long Name : content-partial/test
+(  render.content         )  -> Dest      : /project/test/fixtures/content/root-main/output/content-partial/test.html
+(  render.content         )  -> [ Writing file: /project/test/fixtures/content/root-main/output/content-partial/test.html (198 bytes) ]
+(  render.content         ) Rendering content file..
+(  render.content         )  -> Source    : /project/test/fixtures/content/root-main/content/context-dump.dust
+(  render.content         )  -> Name      : context-dump
+(  render.content         )  -> Long Name : context-dump
+(  render.content         )  -> Dest      : /project/test/fixtures/content/root-main/output/context-dump.html
+(  render.content         )  -> [ Writing file: /project/test/fixtures/content/root-main/output/context-dump.html (1129 bytes) ]
+(  render.content         ) Rendering content file..
+(  render.content         )  -> Source    : /project/test/fixtures/content/root-main/content/data-inclusion.dust
+(  render.content         )  -> Name      : data-inclusion
+(  render.content         )  -> Long Name : data-inclusion
+(  render.content         )  -> Dest      : /project/test/fixtures/content/root-main/output/data-inclusion.html
+(  render.content         )  -> [ Writing file: /project/test/fixtures/content/root-main/output/data-inclusion.html (70 bytes) ]
+(  render.content         ) Rendering content file..
+(  render.content         )  -> Source    : /project/test/fixtures/content/root-main/content/filter-unicorn.dust
+(  render.content         )  -> Name      : filter-unicorn
+(  render.content         )  -> Long Name : filter-unicorn
+(  render.content         )  -> Dest      : /project/test/fixtures/content/root-main/output/filter-unicorn.html
+(  render.content         )  -> [ Writing file: /project/test/fixtures/content/root-main/output/filter-unicorn.html (14 bytes) ]
+(  render.content         ) Rendering content file..
+(  render.content         )  -> Source    : /project/test/fixtures/content/root-main/content/front-matter/basic-local.dust
+(  render.content         )  -> Name      : basic-local
+(  render.content         )  -> Long Name : front-matter/basic-local
+(  render.content         )  -> Dest      : /project/test/fixtures/content/root-main/output/front-matter/basic-local.html
+(  render.content         )  -> [ Writing file: /project/test/fixtures/content/root-main/output/front-matter/basic-local.html (36 bytes) ]
+(  render.content         ) Rendering content file..
+(  render.content         )  -> Source    : /project/test/fixtures/content/root-main/content/front-matter/basic-remote.dust
+(  render.content         )  -> Name      : basic-remote
+(  render.content         )  -> Long Name : front-matter/basic-remote
+(  render.content         )  -> Dest      : /project/test/fixtures/content/root-main/output/front-matter/basic-remote.html
+(  render.content         )  -> [ Writing file: /project/test/fixtures/content/root-main/output/front-matter/basic-remote.html (36 bytes) ]
+(  render.content         ) Rendering content file..
+(  render.content         )  -> Source    : /project/test/fixtures/content/root-main/content/handler-login.dust
+(  render.content         )  -> Name      : handler-login
+(  render.content         )  -> Long Name : handler-login
+(  render.content         )  -> Dest      : /project/test/fixtures/content/root-main/output/handler-login.html
+(  render.content         )  -> [ Writing file: /project/test/fixtures/content/root-main/output/handler-login.html (14 bytes) ]
+(  render.content         ) Rendering content file..
+(  render.content         )  -> Source    : /project/test/fixtures/content/root-main/content/helper-yell.dust
+(  render.content         )  -> Name      : helper-yell
+(  render.content         )  -> Long Name : helper-yell
+(  render.content         )  -> Dest      : /project/test/fixtures/content/root-main/output/helper-yell.html
+(  render.content         )  -> [ Writing file: /project/test/fixtures/content/root-main/output/helper-yell.html (11 bytes) ]
+(  render.content         ) Rendering content file..
+(  render.content         )  -> Source    : /project/test/fixtures/content/root-main/content/layouts/basic-default.html.dust
+(  render.content         )  -> Name      : basic-default
+(  render.content         )  -> Long Name : layouts/basic-default
+(  render.content         )  -> Dest      : /project/test/fixtures/content/root-main/output/layouts/basic-default.html
+(  render.content         )  -> [ Writing file: /project/test/fixtures/content/root-main/output/layouts/basic-default.html (44 bytes) ]
+(  render.content         ) Rendering content file..
+(  render.content         )  -> Source    : /project/test/fixtures/content/root-main/content/layouts/html-test.html.dust
+(  render.content         )  -> Name      : html-test
+(  render.content         )  -> Long Name : layouts/html-test
+(  render.content         )  -> Dest      : /project/test/fixtures/content/root-main/output/layouts/html-test.html
+(  render.content         )  -> [ Writing file: /project/test/fixtures/content/root-main/output/layouts/html-test.html (53 bytes) ]
+(  render.content         ) Rendering content file..
+(  render.content         )  -> Source    : /project/test/fixtures/content/root-main/content/layouts/markdown-test.md.dust
+(  render.content         )  -> Name      : markdown-test
+(  render.content         )  -> Long Name : layouts/markdown-test
+(  render.content         )  -> Dest      : /project/test/fixtures/content/root-main/output/layouts/markdown-test.html
+(  render.content         )  -> [ Writing file: /project/test/fixtures/content/root-main/output/layouts/markdown-test.html (73 bytes) ]
+(  render.content         ) Rendering content file..
+(  render.content         )  -> Source    : /project/test/fixtures/content/root-main/content/markdown/html-inclusion.md.dust
+(  render.content         )  -> Name      : html-inclusion
+(  render.content         )  -> Long Name : markdown/html-inclusion
+(  render.content         )  -> Dest      : /project/test/fixtures/content/root-main/output/markdown/html-inclusion.html
+(  render.content         )  -> [ Writing file: /project/test/fixtures/content/root-main/output/markdown/html-inclusion.html (114 bytes) ]
+(  render.content         ) Rendering content file..
+(  render.content         )  -> Source    : /project/test/fixtures/content/root-main/content/markdown/markdown-inclusion.html.dust
+(  render.content         )  -> Name      : markdown-inclusion
+(  render.content         )  -> Long Name : markdown/markdown-inclusion
+(  render.content         )  -> Dest      : /project/test/fixtures/content/root-main/output/markdown/markdown-inclusion.html
+(  render.content         )  -> [ Writing file: /project/test/fixtures/content/root-main/output/markdown/markdown-inclusion.html (106 bytes) ]
+(  render.content         ) Rendering content file..
+(  render.content         )  -> Source    : /project/test/fixtures/content/root-main/content/partial-inclusion.dust
+(  render.content         )  -> Name      : partial-inclusion
+(  render.content         )  -> Long Name : partial-inclusion
+(  render.content         )  -> Dest      : /project/test/fixtures/content/root-main/output/partial-inclusion.html
+(  render.content         )  -> [ Writing file: /project/test/fixtures/content/root-main/output/partial-inclusion.html (389 bytes) ]
+(  render.content         ) Rendering content file..
+(  render.content         )  -> Source    : /project/test/fixtures/content/root-main/content/layouts/basic-inline-test.html
+(  render.content         )  -> Name      : basic-inline-test
+(  render.content         )  -> Long Name : layouts/basic-inline-test
+(  render.content         )  -> Dest      : /project/test/fixtures/content/root-main/output/layouts/basic-inline-test.html
+(  render.content         )  -> [ Writing file: /project/test/fixtures/content/root-main/output/layouts/basic-inline-test.html (48 bytes) ]
+(  render.content         ) Rendering content file..
+(  render.content         )  -> Source    : /project/test/fixtures/content/root-main/content/markdown/basic.md.html
+(  render.content         )  -> Name      : basic
+(  render.content         )  -> Long Name : markdown/basic
+(  render.content         )  -> Dest      : /project/test/fixtures/content/root-main/output/markdown/basic.html
+(  render.content         )  -> [ Writing file: /project/test/fixtures/content/root-main/output/markdown/basic.html (53 bytes) ]
+(  log.verbosity          ) Verbose logging has been ENABLED
+(  static.scan            ) Scanning for static content files in 'Content Source Path' (short: content)
+(  fsl.scan.start         ) - /project/test/fixtures/content/root-main/content/**/* [START]
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => basic-a.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => content-inclusion.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => content-partial/
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => content-partial/test.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => context-dump.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => data-inclusion.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => filter-unicorn.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => front-matter/
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => front-matter/basic-local.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => front-matter/basic-remote.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => handler-login.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => helper-yell.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => layouts/
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => layouts/basic-default.html.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => layouts/basic-inline-test.html
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => layouts/html-test.html.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => layouts/markdown-test.md.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => markdown/
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => markdown/basic.md.html
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => markdown/html-inclusion.md.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => markdown/markdown-inclusion.html.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => partial-inclusion.dust
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => resources/
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => resources/images/
+(  fsl.scan.yield         ) - /project/test/fixtures/content/root-main/content/**/* => resources/images/c2c_logo_asym.png
+(  fsl.scan.complete      ) - /project/test/fixtures/content/root-main/content/**/* [COMPLETE]
+(  fsl.scan               ) All complete
+(  static.found           ) Found static resource: /project/test/fixtures/content/root-main/content/resources/images/c2c_logo_asym.png
+(  static.copy            )  -> Copying to: '/project/test/fixtures/content/root-main/output/resources/images/c2c_logo_asym.png'
+                <dt>should something</dt>
+                <dd><pre><code>this.timeout( 2000 );
+				var rndr = new C2C.dustjs.Renderer();
+				rndr.setVerbose(true);
+				//rndr.setVerbose(false);
+				rndr.setRootPath( path.join( __dirname, &quot;fixtures/content/root-main&quot;) );
+				rndr.render().then(
+					function( theResult ) {
+						/*
+						console.log(&quot;\n\n\n\n&quot;);
+						console.log(&quot;-=-=-=-=-=-=-=-=-=-&quot;);
+						console.log( theResult );
+						console.log(&quot;\n\n\n\n&quot;);
+						console.log(&quot;\n\n\n\n&quot;);
+						*/
+						cb();
+					}
+				);</code></pre></dd>
+              </dl>
+            </section>
+          </dl>
+        </section>
+      </dl>
+    </section>
