@@ -1,14 +1,21 @@
 {
 	"name"            : "grits",
-	"version"         : "0.1.2",
+	"version"         : "0.2.0",
 	"description"     : "An opinionated Dust.js Renderer with Markdown and Front-Matter features added.",
 	"license"         : "MIT",
-	"main"            : "lib/index.js",
+	"repository"      : {
+		"type" : "git",
+		"url"  : "https://github.com/c2cs/grits.git"
+	},
+	"bugs"            : {
+		"url" : "https://github.com/c2cs/grits"
+	},
 	"author"          : {
 		"name"  : "Luke Chavers",
 		"email" : "luke@chavers.io",
 		"url"   : "http://www.lukechavers.com/"
 	},
+	"main"            : "lib/index.js",
 	"scripts"         : {
 		"test"             : "./node_modules/mocha/bin/mocha",
 		"test-depr"        : "scripts/test.sh",
@@ -53,6 +60,7 @@
 		"eyes"            : "0.1.8",
 		"fs-extra"        : "0.26.5",
 		"gray-matter"     : "2.0.2",
+		"grunt-gh-pages"  : "1.0.0",
 		"lodash"          : "4.0.0",
 		"marked"          : "0.3.5",
 		"mkdirp"          : "0.5.1",

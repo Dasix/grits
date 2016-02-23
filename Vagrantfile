@@ -3,7 +3,7 @@
 # This is often set automatically as the name of the
 # the project root directory, but you can freely change it.
 
-$vmName		= "dustjs-renderer"
+$vmName		= "grits"
 
 
 

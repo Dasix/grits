@@ -13,9 +13,10 @@ source "/project/env/vagrant/provision/_paths.sh"
 
 # Install Dependencies
 "$VG_SCRIPT_ROOT/install-node-js.sh"
+"$VG_SCRIPT_ROOT/yum-install-git.sh"
 #"$VG_SCRIPT_ROOT/install-fish-shell.sh"
 #"$VG_SCRIPT_ROOT/configure-fish-shell.sh"
-#"$VG_SCRIPT_ROOT/npm-install-grunt.sh"
+"$VG_SCRIPT_ROOT/npm-install-grunt.sh"
 #"$VG_SCRIPT_ROOT/npm-install-mocha.sh"
 #"$VG_SCRIPT_ROOT/npm-install-jsdoc.sh"
 #"$VG_SCRIPT_ROOT/npm-install-deps.sh"
