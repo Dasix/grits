@@ -18,14 +18,14 @@
 	},
 	"plugins"       : [
 		"plugins/markdown",
-		"./node_modules/loke-jsdoc-theme/plugins/async",
-		"./node_modules/loke-jsdoc-theme/plugins/rpc",
-		"./node_modules/loke-jsdoc-theme/plugins/api",
-		"./node_modules/loke-jsdoc-theme/plugins/timeout",
-		"./jsdoc-plugins/aka",
-		"./jsdoc-plugins/autoprivate",
-		"./jsdoc-plugins/property_helpers",
-		"./node_modules/jsdoc3-plugin-propertyof/jsdoc3-plugin-propertyof"
+		"node_modules/c2cs-jsdoc/plugins/async/async.js",
+		"node_modules/c2cs-jsdoc/plugins/rpc/rpc.js",
+		"node_modules/c2cs-jsdoc/plugins/api/api.js",
+		"node_modules/c2cs-jsdoc/plugins/timeout/timeout.js",
+		"node_modules/c2cs-jsdoc/plugins/aka/aka.js",
+		"node_modules/c2cs-jsdoc/plugins/autoprivate/autoprivate.js",
+		"node_modules/c2cs-jsdoc/plugins/property_helpers/property_helpers.js",
+		"node_modules/c2cs-jsdoc/plugins/propertyof/propertyof.js"
 	],
 	"markdown"      : {
 		"excludeTags" : [ "author" ]
@@ -35,12 +35,12 @@
 		"monospaceLinks" : true
 	},
 	"opts"          : {
-		"destination" : "./doc/html/",
+		"destination" : "./docs/html/",
 		"encoding"    : "utf8",
 		"private"     : true,
 		"recurse"     : true,
-		"template"    : "./node_modules/loke-jsdoc-theme",
-		"tutorials"   : "./doc/tutorials",
+		"template"    : "./node_modules/c2cs-jsdoc",
+		"tutorials"   : "./docs/tutorials",
 		"verbose"     : true
 	}
 }

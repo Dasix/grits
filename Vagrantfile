@@ -37,11 +37,9 @@ $vmCpus		= "4"
 # tell Vagrant about the base image for this Vagrant VM.  You can edit
 # the default settings by changing the variables above.
 
-$lBoxBuild      = "7.1.1503"
-$lBoxFile       = "CentOS-#{$lBoxBuild}-x86_64-netboot.box"
-$lBoxUrl        = "https://github.com/holms/vagrant-centos7-box/releases/download/#{$lBoxBuild}/#{$lBoxFile}"
-
-
+$lBoxBuild      = "7.1"
+$lBoxFile       = "vagrant-centos-#{$lBoxBuild}.box"
+$lBoxUrl        = "https://github.com/CommanderK5/packer-centos-template/releases/download/0.#{$lBoxBuild}/#{$lBoxFile}"
 
 # Vagrant Config Block
 # ---------------------

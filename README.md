@@ -1,10 +1,12 @@
-c2cs-dustjs-renderer
-================================
 ![Travis-CI Build Status](https://travis-ci.org/c2cs/dustjs-renderer.svg?branch=master)
 
-This project contains the source code for the C2C NPM module `c2cs-dustjs-renderer`,
-which is a wrapper for DustJS that provides a file/directory structure and
-"white matter" support.
+This project is a wrapper for DustJS that provides a file/directory structure and
+"white matter" support.  It is still in alpha and we do not recommend using it
+in production (unless you really know what you're doing).
+
+### Useful Links
+
+* [Travis-CI Project Page](https://travis-ci.org/c2cs/dustjs-renderer)
 
 ### Project Dependencies
 

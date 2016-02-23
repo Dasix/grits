@@ -1,6 +1,6 @@
 {
-	"name"            : "c2cs-dustjs-renderer",
-	"version"         : "0.1.0",
+	"name"            : "grits",
+	"version"         : "0.1.2",
 	"description"     : "An opinionated Dust.js Renderer with Markdown and Front-Matter features added.",
 	"license"         : "MIT",
 	"main"            : "lib/index.js",
@@ -28,19 +28,22 @@
 		"monitor-docs"     : "./scripts/monitor-docs.sh",
 		"monitor-tests"    : "./scripts/monitor-tests.sh"
 	},
-	"files"           : [ ],
-	"keywords"        : [ ],
+	"keywords"        : [
+		"c2c",
+		"c2cs",
+		"dust",
+		"dustjs",
+		"renderer",
+		"template",
+		"front-matter"
+	],
 	"devDependencies" : {
-		"chai"                     : "3.4.1",
-		"grunt"                    : "0.4.5",
-		"grunt-contrib-watch"      : "0.6.1",
-		"grunt-shell"              : "1.1.2",
-		"ink-docstrap"             : "1.1.0",
-		"jaguarjs-jsdoc"           : "0.0.1",
-		"jsdoc-json"               : "2.0.0",
-		"jsdoc3-plugin-propertyof" : "0.0.1",
-		"loke-jsdoc-theme"         : "2.1.0",
-		"mocha"                    : "2.3.4"
+		"c2cs-jsdoc"          : "0.2.4",
+		"chai"                : "3.4.1",
+		"grunt"               : "0.4.5",
+		"grunt-contrib-watch" : "0.6.1",
+		"grunt-shell"         : "1.1.2",
+		"mocha"               : "2.3.4"
 	},
 	"dependencies"    : {
 		"bluebird"        : "3.1.1",
