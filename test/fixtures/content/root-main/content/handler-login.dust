@@ -1,0 +1,13 @@
+---
+username: "someone"
+password: "somepass"
+---
+{#login}
+	Welcome!
+{:usernameError}
+	Your username was not found.
+{:passwordError}
+	Your password was incorrect. You have {.} attempts remaining.
+{:else}
+	Please log in!
+{/login}

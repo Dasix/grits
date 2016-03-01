@@ -1,0 +1,1 @@
+<div class="basic-layout">{+bodyContent}Default Body{/bodyContent}</div>

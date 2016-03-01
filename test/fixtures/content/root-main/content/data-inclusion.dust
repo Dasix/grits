@@ -1,0 +1,1 @@
+{#data.test.items}<p>{name}</p>{/data.test.items}

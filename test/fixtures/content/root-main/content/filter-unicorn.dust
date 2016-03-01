@@ -1,0 +1,4 @@
+---
+aStr: "I love unicorns!"
+---
+{aStr|unicorn}

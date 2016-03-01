@@ -1,0 +1,3 @@
+<p>This is a "partial", which functions identically to a "content partial" except
+that it will NOT be rendered as content and WILL automatically be prefixed with
+<code>partial/</code> in the compiler.</p>

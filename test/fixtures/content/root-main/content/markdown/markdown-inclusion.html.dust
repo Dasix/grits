@@ -1,0 +1,5 @@
+<h2>Markdown Inclusion Test</h2>
+
+<div>{~n}
+	{>"partial/markdown-to-html"/}
+{~n}</div>

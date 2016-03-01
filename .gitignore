@@ -38,6 +38,7 @@ bower_components
 # -- NPM -------------------------------- #
 
 npm-debug.log
+npm-debug.log.*
 
 # -- Common Editors --------------------- #
 

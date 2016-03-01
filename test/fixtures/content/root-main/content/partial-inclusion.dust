@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dust.js Renderer | Partial Inclusion</title>
+</head>
+<body>
+
+This file is testing the ability for a content file to include a standard partial.
+
+{>"partial/simple"/}
+
+</body>
+</html>

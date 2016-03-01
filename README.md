@@ -1,4 +1,4 @@
-![Travis-CI Build Status](https://travis-ci.org/c2cs/dustjs-renderer.svg?branch=master)
+[![Build Status](https://travis-ci.org/c2cs/grits.svg?branch=master)](https://travis-ci.org/c2cs/grits)
 
 This project is a wrapper for DustJS that provides a file/directory structure and
 "white matter" support.  It is still in alpha and we do not recommend using it
@@ -6,7 +6,7 @@ in production (unless you really know what you're doing).
 
 ### Useful Links
 
-* [Travis-CI Project Page](https://travis-ci.org/c2cs/dustjs-renderer)
+* [Travis-CI Project Page](https://travis-ci.org/c2cs/grits)
 
 ### Project Dependencies
 

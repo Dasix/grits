@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dust.js Renderer | Basic Rendering Test A</title>
+</head>
+<body>
+	This file is simply testing basic HTML only rendering, without any helper{~n}
+	functions, markdown, or data.  This file should be rendered verbatim to a{~n}
+	file named "basic-a.html".
+</body>
+</html>

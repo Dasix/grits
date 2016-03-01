@@ -1,20 +1,24 @@
 #!/bin/bash
 
-# This file is executed each time that "vagrant up" or "vagrant reload" is
-# executed.  During provisioning, this file is executed AFTER provision.sh.
 
-# Load common path variables
-source "/project/env/vagrant/provision/_paths.sh"
 
-echo ""
-echo "[Always] Running always.sh"
+# This script is executed by Vagrant each time the machine is booted.
+# On the first boot it will run immediately after provision.sh.
 
-# Rebuild the YUM cache to make yum operations faster
-echo "    > Rebuilding YUM cache"
-#yum makecache fast
 
-# Upload the database for the "locate" command (mlocate package)
-echo "    > Updating local file database for 'locate'"
-#updatedb
 
-echo ""
+# Define script location
+PROVISION_SCRIPT_ROOT="/project/env/vagrant"
+
+# Settings
+GITHUB_SCRIPT_USER="vmadman"
+GITHUB_SCRIPT_REPO="linux-scripts"
+GITHUB_SCRIPT_BRANCH="master"
+GITHUB_SCRIPT_PATH="vagrant/centos7/dev/v1"
+
+# Include the GitHub Execution Helper
+source "$PROVISION_SCRIPT_ROOT/github-exec.sh"
+
+# Run Several Scripts from GitHub Files..
+exec_github_script "yum-update-cache"
+exec_github_script "mlocate-update-db"

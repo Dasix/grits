@@ -187,15 +187,15 @@ describe('DustJS Renderer', function() {
 			}
 		);
 
-		describe.only("Basic HTML Renderering", function() {
+		describe("Basic HTML Renderering", function() {
 
 			it("should something", function( cb ) {
 
 				this.timeout( 2000 );
 
 				var rndr = new C2C.dustjs.Renderer();
-				rndr.setVerbose(true);
-				//rndr.setVerbose(false);
+				//rndr.setVerbose(true);
+				rndr.setVerbose(false);
 				rndr.setRootPath( path.join( __dirname, "fixtures/content/root-main") );
 				rndr.render().then(
 

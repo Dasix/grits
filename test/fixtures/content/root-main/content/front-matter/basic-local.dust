@@ -1,0 +1,4 @@
+---
+somevar: "someval"
+---
+<p>"{somevar}" should be "someval"</p>
