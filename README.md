@@ -1,3 +1,5 @@
+[![NPM](https://nodei.co/npm/grits.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/grits/)
+
 [![Build Status](https://travis-ci.org/c2cs/grits.svg?branch=master)](https://travis-ci.org/c2cs/grits)
 
 This project is a wrapper for DustJS that provides a file/directory structure and
