@@ -1,0 +1,42 @@
+{
+	"paths" : {
+		"root"    : [
+			"/a/root",
+			"/b/root"
+		],
+		"output"  : [
+			"/a/output",
+			"/b/output"
+		],
+		"helper"  : [
+			"/z/helpers",
+			"/x/helpers"
+		],
+		"handler" : [
+			"/z/handlers",
+			"/x/handlers"
+		],
+		"filter"  : [
+			"/z/filters",
+			"/x/filters"
+		],
+		"partial" : [
+			"/z/partials",
+			"/x/partials"
+		],
+		"layout"  : [
+			"/z/layouts",
+			"/x/layouts"
+		],
+		"content" : [
+			"/z/content",
+			"/x/content"
+		],
+		"data"    : [
+			"/z/data",
+			"/x/data",
+			"/s/data",
+			"/y/data"
+		]
+	}
+}

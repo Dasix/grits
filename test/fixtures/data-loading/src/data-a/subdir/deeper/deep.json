@@ -1,0 +1,7 @@
+{
+	"cVar": "hi",
+	"dVar": "mars",
+	"dataArray": [
+		"car", "suv", "truck"
+	]
+}

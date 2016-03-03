@@ -1,0 +1,21 @@
+{
+	"id": "a-subdir",
+	"scalarArray": [
+		"jon", "mike", "sam"
+	],
+	"simpleObj": {
+		"from": "a-subdir",
+		"anArray": [
+			"a-subdir"
+		]
+	},
+	"objArray": [
+		{
+			"id": 1,
+			"from": "a-subdir"
+		},{
+			"id": 2,
+			"from": "a-subdir"
+		}
+	]
+}

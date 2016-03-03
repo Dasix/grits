@@ -1,0 +1,4 @@
+---
+aVar: world
+---
+Hello {aVar}

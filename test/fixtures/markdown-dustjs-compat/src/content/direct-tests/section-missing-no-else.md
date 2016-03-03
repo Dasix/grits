@@ -1,0 +1,1 @@
+Hello {#aSection}world{/aSection}

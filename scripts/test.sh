@@ -14,6 +14,6 @@ cd /project
 mocha
 
 # Run the tests with the html renderer
-mkdir -p ./doc/tests
-mocha --reporter doc > doc/tests/index.html
+#mkdir -p ./doc/tests
+#mocha --reporter doc > doc/tests/index.html
 

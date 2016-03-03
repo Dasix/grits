@@ -1,0 +1,25 @@
+{
+	"id": "b-root",
+	"scalarArray": [
+		"jon", "mike", "sam"
+	],
+	"simpleObj": {
+		"from": "b-root",
+		"anArray": [
+			"b-root"
+		]
+	},
+	"objArray": [
+		{
+			"id": 1,
+			"from": "b-root"
+		},{
+			"id": 2,
+			"from": "b-root"
+		},{
+			"id": 1,
+			"from": "a-subdir"
+		}
+	],
+	"//note": "The last value in objArray is meant to show that objects CAN NOT be filtered for uniqueness in merge ops"
+}

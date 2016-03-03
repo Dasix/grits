@@ -31,6 +31,9 @@ module.exports = {
 		files: [
 			"lib/**/*.js",
 			"test/*.js",
+			"test/lib/*.js",
+			"test/fixtures/markdown-rendering-basic/src/**/*",
+			"test/fixtures/markdown-dustjs-compat/src/**/*",
 			"test/fixtures/content/root-main/content/**/*.html",
 			"test/fixtures/content/root-main/content/**/*.md",
 			"test/fixtures/content/root-main/content/**/*.dust",

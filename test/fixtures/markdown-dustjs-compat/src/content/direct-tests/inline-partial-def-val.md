@@ -1,0 +1,1 @@
+Hello {+aVar}default{/aVar}

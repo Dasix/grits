@@ -19,6 +19,9 @@ module.exports = function(grunt) {
 	//grunt.loadNpmTasks( "grunt-contrib-copy"  );
 	//grunt.loadNpmTasks( "grunt-contrib-clean" );
 
+	// Watchers
+	grunt.registerTask( "watch-docs", [ "shell:buildDocs", "watch:docs" ] );
+	grunt.registerTask( "watch-tests", [ "shell:runTests", "watch:tests" ] );
 
 	// Rebuild documentation
 	grunt.registerTask( "docs", [ "shell:buildDocs" ] );
