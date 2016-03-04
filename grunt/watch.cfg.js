@@ -1,7 +1,7 @@
 /**
  * Grunt configuration for `grunt-contrib-watch`
  *
- * @author Luke Chavers <luke@c2cschools.com>
+ * @author Luke Chavers <luke@chavers.io>
  * @created 2016-01-25
  */
 

@@ -1,16 +1,8 @@
 # --------------------------------------- #
-#    C2C's Universal GIT Ignore File      #
-# - - - - - - - - - - - - - - - - - - - - #
-#  Version  : 1.1                         #
+#  Version  : 1.2                         #
 #  Author   : Luke Chavers                #
 #  Created  : Monday, Jan 26th, 2015      #
 #  Based On : https://www.gitignore.io    #
-# - - - - - - - - - - - - - - - - - - - - #
-#     http://git.c2c.local/snippets/3     #
-# - - - - - - - - - - - - - - - - - - - - #
-#  This .gitignore file is pretty robust  #
-# and should be appropriate for most, if  #
-#         not all, C2C projects.          #
 # --------------------------------------- #
 
 # -- Generic / Misc ----------------------#
@@ -70,17 +62,11 @@ dist/bower_components
 
 .vagrant
 
-# -- C2C Authentication ----------------- #
+# -- Other Patterns --------------------- #
 
 auth/*.tar.gz
-
-# -- Common C2C Patterns ---------------- #
-
 /docs/api
 *.depr.*
 */backup/*
 tmp/
-
-# -- Project Specific ------------------- #
-
 .grunt

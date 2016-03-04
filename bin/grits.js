@@ -94,7 +94,7 @@ if( program.output !== undefined ) {
 
 // Initialize a renderer
 require( path.join( __dirname, "..", pkg.main ) );
-var grits = new C2C.dustjs.Renderer( gritsConfig );
+var grits = new Dasix.grits.Renderer( gritsConfig );
 
 
 

@@ -1,14 +1,14 @@
 {
 	"name"            : "grits",
-	"version"         : "0.4.0",
+	"version"         : "0.4.1",
 	"description"     : "An opinionated Dust.js Renderer with Markdown and Front-Matter features added.",
 	"license"         : "MIT",
 	"repository"      : {
 		"type" : "git",
-		"url"  : "https://github.com/c2cs/grits.git"
+		"url"  : "https://github.com/Dasix/grits.git"
 	},
 	"bugs"            : {
-		"url" : "https://github.com/c2cs/grits"
+		"url" : "https://github.com/Dasix/grits"
 	},
 	"author"          : {
 		"name"  : "Luke Chavers",
@@ -39,8 +39,7 @@
 		"monitor-tests"    : "./scripts/monitor-tests.sh"
 	},
 	"keywords"        : [
-		"c2c",
-		"c2cs",
+		"dasix",
 		"dust",
 		"dustjs",
 		"renderer",

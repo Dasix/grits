@@ -121,7 +121,7 @@ describe("Output Cleaning", function() {
  * Creates a new renderer, configured for the tests above..
  *
  * @param {boolean} verbose Render verbosity setting
- * @returns {C2C.dustjs.Renderer}
+ * @returns {Dasix.grits.Renderer}
  */
 function ocInitRenderer( verbose ) {
 

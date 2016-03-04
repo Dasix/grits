@@ -10,7 +10,7 @@ describe('File System Loader', function() {
 	var fsl;
 
 	beforeEach( function() {
-		fsl = new C2C.dustjs.FileSystemLoader();
+		fsl = new Dasix.grits.FileSystemLoader();
 	});
 
 	describe("#_doOneScan", function() {
@@ -1050,7 +1050,7 @@ describe('File System Loader', function() {
 
 			describe("=> result.files", function() {
 
-				it(	"should be an array of `C2C.dustjs.File` objects", function( cb ) {
+				it(	"should be an array of `Dasix.grits.File` objects", function( cb ) {
 
 					execScan().then(
 						function( res ) {

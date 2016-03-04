@@ -19,7 +19,7 @@ describe("Pattern Omitter", function() {
 		var name 	= "test";
 
 		// Create a new "pattern omitter"
-		po = new C2C.dustjs.PatternOmitter( name, src, pattern );
+		po = new Dasix.grits.PatternOmitter( name, src, pattern );
 
 		// Configure the placeholders.  We're intentionally
 		// simplifying them for testing purposes; this would

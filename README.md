@@ -1,6 +1,6 @@
 [![NPM](https://nodei.co/npm/grits.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/grits/)
 
-[![Build Status](https://travis-ci.org/c2cs/grits.svg?branch=master)](https://travis-ci.org/c2cs/grits)
+[![Build Status](https://travis-ci.org/Dasix.grits..svg?branch=master)](https://travis-ci.org/Dasix.grits.)
 
 This project is a wrapper for DustJS that provides a file/directory structure and
 "white matter" support.  It is still in alpha and we do not recommend using it
@@ -8,7 +8,7 @@ in production (unless you really know what you're doing).
 
 ### Useful Links
 
-* [Travis-CI Project Page](https://travis-ci.org/c2cs/grits)
+* [Travis-CI Project Page](https://travis-ci.org/Dasix.grits.)
 
 ### Project Dependencies
 

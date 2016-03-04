@@ -1,1 +1,1 @@
-This file is used to test the C2C.dustjs.FileSystemLoader class.
+This file is used to test the Dasix.grits.FileSystemLoader class.

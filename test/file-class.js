@@ -12,7 +12,7 @@ describe("File Class", function() {
 
 		it("should have its values transformed when #setBasePath is called", function() {
 
-			var f = new C2C.dustjs.File( "/a/b/c/", "d/e/f", "g.txt" );
+			var f = new Dasix.grits.File( "/a/b/c/", "d/e/f", "g.txt" );
 			expect( f.getBasePath() ).to.equal( "/a/b/c" );
 
 			f.setBasePath("/a/b/c/../d");
@@ -29,7 +29,7 @@ describe("File Class", function() {
 
 		it("should have its values transformed when #setRelativePath is called", function() {
 
-			var f = new C2C.dustjs.File( "/a/b/c", "d/e/f", "g.txt" );
+			var f = new Dasix.grits.File( "/a/b/c", "d/e/f", "g.txt" );
 			expect( f.getRelativePath() ).to.equal( "d/e/f" );
 
 			f.setRelativePath("d/e/f");
@@ -55,7 +55,7 @@ describe("File Class", function() {
 
 		it("should have its values transformed when #setFilename is called", function() {
 
-			var f = new C2C.dustjs.File( "/a/b/c", "d/e/f", "g.txt" );
+			var f = new Dasix.grits.File( "/a/b/c", "d/e/f", "g.txt" );
 			expect( f.getFilename() ).to.equal( "g.txt" );
 
 			f.setFilename("g.txt");
@@ -81,7 +81,7 @@ describe("File Class", function() {
 
 		it("should return a correct value", function() {
 
-			var f = new C2C.dustjs.File( "/some/a/b/c/../../../", "/path/d/e/f/../../../", "/to/../some/a.file" );
+			var f = new Dasix.grits.File( "/some/a/b/c/../../../", "/path/d/e/f/../../../", "/to/../some/a.file" );
 			expect( f.getRelativeFilePath() ).to.equal("path/a.file");
 
 		});
@@ -92,7 +92,7 @@ describe("File Class", function() {
 
 		it("should return a correct value", function() {
 
-			var f = new C2C.dustjs.File( "/some/a/b/c/../../../", "/path/d/e/f/../../../", "/to/../some/a.file" );
+			var f = new Dasix.grits.File( "/some/a/b/c/../../../", "/path/d/e/f/../../../", "/to/../some/a.file" );
 			expect( f.getAbsoluteFilePath() ).to.equal("/some/path/a.file");
 
 		});
@@ -103,16 +103,16 @@ describe("File Class", function() {
 
 		it("should return a correct value", function() {
 
-			var f = new C2C.dustjs.File( "/root", "", "basename.x" );
+			var f = new Dasix.grits.File( "/root", "", "basename.x" );
 			expect( f.getBaseName() ).to.equal("basename");
 
-			var f = new C2C.dustjs.File( "/root", "", "basename.x.y.z" );
+			var f = new Dasix.grits.File( "/root", "", "basename.x.y.z" );
 			expect( f.getBaseName() ).to.equal("basename");
 
-			var f = new C2C.dustjs.File( "/root", "", "basename" );
+			var f = new Dasix.grits.File( "/root", "", "basename" );
 			expect( f.getBaseName() ).to.equal("basename");
 
-			var f = new C2C.dustjs.File( "/root", "", ".basename" );
+			var f = new Dasix.grits.File( "/root", "", ".basename" );
 			expect( f.getBaseName() ).to.equal("basename");
 
 		});
@@ -123,16 +123,16 @@ describe("File Class", function() {
 
 		it("should return a correct value", function() {
 
-			var f = new C2C.dustjs.File( "/root", "subdir", "basename.x" );
+			var f = new Dasix.grits.File( "/root", "subdir", "basename.x" );
 			expect( f.getRelativeBaseName() ).to.equal("subdir/basename");
 
-			var f = new C2C.dustjs.File( "/root", "subdir", "basename.x.y.z" );
+			var f = new Dasix.grits.File( "/root", "subdir", "basename.x.y.z" );
 			expect( f.getRelativeBaseName() ).to.equal("subdir/basename");
 
-			var f = new C2C.dustjs.File( "/root", "", "basename" );
+			var f = new Dasix.grits.File( "/root", "", "basename" );
 			expect( f.getRelativeBaseName() ).to.equal("basename");
 
-			var f = new C2C.dustjs.File( "/root", "", ".basename" );
+			var f = new Dasix.grits.File( "/root", "", ".basename" );
 			expect( f.getRelativeBaseName() ).to.equal("basename");
 
 		});
@@ -145,7 +145,7 @@ describe("File Class", function() {
 
 			it("should return a correct array value", function() {
 
-				var f = new C2C.dustjs.File( "/root", "subdir", "basename.x" );
+				var f = new Dasix.grits.File( "/root", "subdir", "basename.x" );
 				var ext;
 
 
@@ -190,7 +190,7 @@ describe("File Class", function() {
 
 			it("should return a correct object value", function() {
 
-				var f = new C2C.dustjs.File( "/root", "subdir", "basename.x" );
+				var f = new Dasix.grits.File( "/root", "subdir", "basename.x" );
 				var ext;
 
 
@@ -234,7 +234,7 @@ describe("File Class", function() {
 
 		it("should return a correct value", function() {
 
-			var f = new C2C.dustjs.File( "/root", "subdir", "basename.x" );
+			var f = new Dasix.grits.File( "/root", "subdir", "basename.x" );
 
 
 			// First Test

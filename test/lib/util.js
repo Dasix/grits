@@ -96,7 +96,7 @@ u.getFreshRenderer = function( cfg ) {
 	}
 
 	// Init Renderer
-	return new C2C.dustjs.Renderer( cfg );
+	return new Dasix.grits.Renderer( cfg );
 
 };
 

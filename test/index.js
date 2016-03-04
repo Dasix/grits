@@ -14,7 +14,7 @@ describe('DustJS Renderer', function() {
 
 			expect(
 				function() {
-					var rnd = new C2C.dustjs.Renderer();
+					var rnd = new Dasix.grits.Renderer();
 					rnd.countPathsOfType("somethingInvalid");
 				}
 			).to.throw(Error);
@@ -28,7 +28,7 @@ describe('DustJS Renderer', function() {
 		var rnd;
 
 		beforeEach( function() {
-			rnd = new C2C.dustjs.Renderer();
+			rnd = new Dasix.grits.Renderer();
 		});
 
 		describe("#setRootPath", function() {
@@ -193,7 +193,7 @@ describe('DustJS Renderer', function() {
 
 				this.timeout( 2000 );
 
-				var rndr = new C2C.dustjs.Renderer();
+				var rndr = new Dasix.grits.Renderer();
 				//rndr.setVerbose(true);
 				rndr.setVerbose(false);
 				rndr.setRootPath( path.join( __dirname, "fixtures/content/root-main") );
