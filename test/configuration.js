@@ -16,8 +16,6 @@ describe("Configuration", function() {
 		// Init Renderer
 		rndr = util.getFreshRenderer();
 
-
-
 	});
 
 	describe("Paths", function() {
@@ -187,6 +185,38 @@ describe("Configuration", function() {
 
 				expect( paths.data[2] 		).to.equal( "/y/data" );
 				expect( paths.data[3] 		).to.equal( "/z/data" );
+
+			});
+
+			it("should allow config files", function() {
+
+				var configPath = util.path.join( util.getPaths( fixtureName ).fixtureRoot, "conf", "simple.json" );
+
+				//rndr.setVerbose( true );
+
+				// We do this just to make sure the 'setConfig'
+				// call removes these settings..
+				rndr.setRootPath( "/bad/root/" );
+				rndr.setOutputPath( "/bad/output/" );
+
+				// Set the paths
+				rndr.setConfig({
+					configFile: configPath,
+					paths: {
+						output	: [ "/a/output", "/b/output" ],
+						helper	: [ "/z/helpers", "/x/helpers" ]
+					}
+				});
+
+				var paths = rndr.getAllPaths();
+
+				expect( paths.output[0] 	).to.equal( "/a/output" );
+				expect( paths.output[1] 	).to.equal( "/b/output" );
+				expect( paths.output[2] 	).to.equal( "/e/output" );
+
+				expect( paths.helper[0] 	).to.equal( "/x/helpers" );
+				expect( paths.helper[1] 	).to.equal( "/z/helpers" );
+
 
 			});
 
