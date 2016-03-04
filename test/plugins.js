@@ -7,7 +7,7 @@ var _ = util.lodash;
 var fixtureName = "plugins";
 
 // Tests
-describe.only("Plugins", function() {
+describe("Plugins", function() {
 
 	var rndr;
 	var paths;
