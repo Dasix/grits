@@ -67,6 +67,11 @@ if( program.verbose !== undefined ) {
 	gritsConfig.verbose = true;
 }
 
+// Process the 'config' setting
+if( program.config !== undefined ) {
+	gritsConfig.configFile = path.resolve( cwd, program.config );
+}
+
 // Process the 'clean' setting
 if( program.clean !== undefined ) {
 	gritsConfig.autoClean = true;
