@@ -6,7 +6,7 @@ var expect  = util.expect;
 var fixtureName = "configuration";
 
 // Tests
-describe.only("Configuration", function() {
+describe("Configuration", function() {
 
 	var rndr;
 	var paths;

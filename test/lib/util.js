@@ -85,14 +85,18 @@ u.getRenderer = function( name, verbose ) {
 /**
  * Creates a renderer
  *
- * @param {string} name
- * @param {boolean} verbose
+ * @param {?object} cfg A configuration object to pass to the renderer
  * @returns {object}
  */
-u.getFreshRenderer = function() {
+u.getFreshRenderer = function( cfg ) {
+
+	// cfg param handling
+	if( cfg === undefined || cfg === null ) {
+		cfg = null;
+	}
 
 	// Init Renderer
-	return new C2C.dustjs.Renderer();
+	return new C2C.dustjs.Renderer( cfg );
 
 };
 
