@@ -28,6 +28,7 @@ program
 	.option("-n, --noroot", 				"Disable the 'root path' logic and automatic directories")
 	.option("-w, --preview", 				"Outputs the grits configuration settings and skips rendering")
 	.option("-v, --verbose", 				"Enables verbose output")
+	.option("-l, --log-filter <str>",		"Limits the output log to only *topics* containing 'str'. (Allows Multiple)", collect)
 	.parse(process.argv);
 
 
@@ -68,6 +69,14 @@ if( program.noroot !== undefined ) {
 if( program.verbose !== undefined ) {
 	gritsConfig.verbose = true;
 }
+
+
+// Process the 'log-filter' setting
+//console.log(program);
+if( program.logFilter !== undefined ) {
+	gritsConfig.logFilter = program.logFilter;
+}
+
 
 // Process the 'config' setting
 if( program.config !== undefined ) {
