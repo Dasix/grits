@@ -60,20 +60,7 @@ pr.addEvidence = function( renderer, name ) {
  * @returns {string[]}
  */
 pr.getEventNames = function() {
-	return [
-		"onAttach", "onDetach",
-		"beforeRender", "afterRender",
-		"beforeRenderContent", "afterRenderContent",
-		"beforeCopyStatic", "afterCopyStatic",
-		"beforeCompileContent", "afterCompileContent",
-		"beforePreClean", "afterPreClean",
-		"beforeLoadData", "afterLoadData",
-		"beforeCompilePartials", "afterCompilePartials",
-		"beforeCompileLayouts", "afterCompileLayouts",
-		"beforeLoadHelpers", "afterLoadHelpers",
-		"beforeLoadHandlers", "afterLoadHandlers",
-		"beforeLoadFilters", "afterLoadFilters"
-	];
+	return require("./_eventNames.js");
 };
 
 /**

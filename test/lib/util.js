@@ -111,15 +111,45 @@ u.getOutput = function( fixtureName, filename ) {
 
 	// Get the paths
 	var paths = this.getPaths( fixtureName );
+	var contents;
 
 	// Resolve target path
 	var target = path.join( paths.outputRoot, filename );
 
 	// Load the target file
-	var contents = fs.readFileSync( target, { encoding: "utf8" } );
+	try {
+		contents = fs.readFileSync( target, { encoding: "utf8" } );
+	} catch( err ) {
+		console.log(" ");
+		console.log(" ");
+		console.log("-~-~-~-~-~- util.getOutput -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-");
+		console.log(" ");
+		console.log("Could not read output from file because it does not exist!")
+		console.log(" -> " + target);
+		console.log(" ");
+		console.log("-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~");
+		console.log(" ");
+		console.log(" ");
+		throw(err);
+	}
+
 
 	// Done
 	return contents;
+
+};
+
+u.checkOutputNoWS = function( fixtureName, filename, expected ) {
+
+	var me = this;
+	var actual = me.getOutput( fixtureName, filename, expected );
+
+	// Trim all whitespace
+	actual = actual.replace(/\s/g, '');
+	expected = expected.replace(/\s/g, '');
+
+	// Assert
+	expect( actual ).to.equal( expected );
 
 };
 

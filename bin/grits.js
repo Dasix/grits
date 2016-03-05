@@ -13,15 +13,17 @@ program
 	.version(pkg.version)
 	.usage("[options] [root]")
 	.option("-c, --config <path>", 			"The configuration file to use for grits execution")
-	.option("    --helpers <path>", 		"Path to Dust.js helpers. This switch can be provided more than once", collect)
-	.option("    --handlers <path>", 		"Path to Dust.js handlers. This switch can be provided more than once", collect)
-	.option("    --filters <path>", 		"Path to Dust.js filters. This switch can be provided more than once", collect)
-	.option("    --partials <path>", 		"Path to Dust.js partials. This switch can be provided more than once", collect)
-	.option("    --layouts <path>", 		"Path to Dust.js layouts. This switch can be provided more than once", collect)
-	.option("    --content <path>", 		"Path to site content. This switch can be provided more than once", collect)
-	.option("    --data <path>", 			"Path to data files. This switch can be provided more than once", collect)
-	.option("-o, --output <path>", 			"Render output path. This switch can be provided more than once", collect)
-	.option("-p, --plugin <name>", 			"Load a grits plugin. This switch can be provided more than once", collect)
+	.option("    --helpers <path>", 		"Path to Dust.js helpers. (Allows Multiple)", collect)
+	.option("    --handlers <path>", 		"Path to Dust.js handlers. (Allows Multiple)", collect)
+	.option("    --filters <path>", 		"Path to Dust.js filters. (Allows Multiple)", collect)
+	.option("    --partials <path>", 		"Path to Dust.js partials. (Allows Multiple)", collect)
+	.option("    --layouts <path>", 		"Path to Dust.js layouts. (Allows Multiple)", collect)
+	.option("    --content <path>", 		"Path to site content. (Allows Multiple)", collect)
+	.option("    --data <path>", 			"Path to data files. (Allows Multiple)", collect)
+	.option("    --sass <path>", 			"Path to SASS/SCSS source files. (Allows Multiple)", collect)
+	.option("    --sassi <path>", 			"Path to SASS/SCSS include files. (Allows Multiple)", collect)
+	.option("-o, --output <path>", 			"Render output path. (Allows Multiple)", collect)
+	.option("-p, --plugin <name>", 			"Load a grits plugin. (Allows Multiple)", collect)
 	.option("-x, --clean", 					"Instructs the renderer to clean the output path before rendering")
 	.option("-n, --noroot", 				"Disable the 'root path' logic and automatic directories")
 	.option("-w, --preview", 				"Outputs the grits configuration settings and skips rendering")
@@ -101,13 +103,15 @@ var grits = new Dasix.grits.Renderer( gritsConfig );
 // ---- Additional Paths -------------------------------------------------------
 
 var extraPaths = [
-	[ "helpers", 	"Helper" 	],
-	[ "handlers", 	"Handler" 	],
-	[ "filters", 	"Filter" 	],
-	[ "partials", 	"Partial" 	],
-	[ "layouts", 	"Layout" 	],
-	[ "content", 	"Content" 	],
-	[ "data", 		"Data"		]
+	[ "helpers", 	"Helper" 		],
+	[ "handlers", 	"Handler" 		],
+	[ "filters", 	"Filter" 		],
+	[ "partials", 	"Partial" 		],
+	[ "layouts", 	"Layout" 		],
+	[ "content", 	"Content" 		],
+	[ "data", 		"Data"			],
+	[ "sass", 		"Sass"			],
+	[ "sassi", 		"SassInclude"	]
 ];
 
 // Process any helper paths
