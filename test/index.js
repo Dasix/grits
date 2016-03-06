@@ -114,9 +114,11 @@ describe('DustJS Renderer', function() {
 				rnd.setRootPath( e );
 				rnd.addRootPath( [ h, a ] );
 
-				expect( rnd._paths.root[0] ).to.equal( a );
-				expect( rnd._paths.root[1] ).to.equal( e );
-				expect( rnd._paths.root[2] ).to.equal( h );
+				var p = rnd.getRootPaths();
+
+				expect( p[0] ).to.equal( a );
+				expect( p[1] ).to.equal( e );
+				expect( p[2] ).to.equal( h );
 
 			});
 
@@ -155,64 +157,6 @@ describe('DustJS Renderer', function() {
 				expect( ret[a] ).to.equal( a );
 				expect( ret[e] ).to.equal( e );
 				expect( ret[h] ).to.equal( h );
-
-			});
-
-		});
-
-		describe("#clearRootPaths", function() {
-
-			it("should clear all root paths", function() {
-
-
-
-			});
-
-			it("should not clear any non-root paths", function() {
-
-
-
-			});
-
-		});
-
-	});
-
-	describe("Renderering", function() {
-
-		var rndr;
-
-		before(
-			function() {
-			}
-		);
-
-		describe("Basic HTML Renderering", function() {
-
-			it("should something", function( cb ) {
-
-				this.timeout( 2000 );
-
-				var rndr = new Dasix.grits.Renderer();
-				//rndr.setVerbose(true);
-				rndr.setVerbose(false);
-				rndr.setRootPath( path.join( __dirname, "fixtures/content/root-main") );
-				rndr.render().then(
-
-					function( theResult ) {
-
-						/*
-						console.log("\n\n\n\n");
-						console.log("-=-=-=-=-=-=-=-=-=-");
-						console.log( theResult );
-						console.log("\n\n\n\n");
-						console.log("\n\n\n\n");
-						*/
-
-						cb();
-					}
-
-				);
 
 			});
 

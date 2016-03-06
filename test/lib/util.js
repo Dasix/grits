@@ -7,6 +7,7 @@ var fs		= require( "fs" );
 var chai 	= require( "chai" );
 var expect 	= chai.expect;
 var _		= require( "lodash" );
+var tipe	= require( "tipe" );
 
 // Chai Plugins
 chai.use( require("chai-html") 	);
@@ -51,24 +52,34 @@ u.getPaths = function( name ) {
  * Creates a renderer that is preloaded with fixture paths.
  *
  * @param {string} name
- * @param {boolean} verbose
+ * @param {?boolean|object} [cfg=false] A configuration object.  If an object is passed
+ * then it will be used to configure the renderer.  If a boolean is passed, then it will
+ * be used as the verbose setting (i.e. `{ verbose: cfg }`).  If this param is omitted
+ * or if anything else is passed (such as NULL), then a default cfg object will be
+ * constructed and used.
  * @returns {object}
  */
-u.getRenderer = function( name, verbose ) {
+u.getRenderer = function( name, cfg ) {
 
-	// Default verbose param
-	if( verbose === undefined || verbose === null || verbose !== true ) {
-		verbose = false;
+	// Locals
+	var me = this;
+
+	// Parse the cfg param
+	if( cfg === undefined || cfg === null ) {
+		cfg = { verbose: false };
+	} else if( tipe( cfg ) === "boolean" ) {
+		cfg = { verbose: cfg };
+	} else if( tipe( cfg ) === "object" ) {
+		// accept as cfg object
+	} else {
+		cfg = { verbose: false };
 	}
 
 	// Get the paths
-	var paths = this.getPaths( name );
+	var paths = me.getPaths( name );
 
 	// Init Renderer
-	var rndr = this.getFreshRenderer();
-
-	// Set verbosity
-	rndr.setVerbose(verbose);
+	var rndr = me.getFreshRenderer( cfg );
 
 	// Set paths
 	rndr.setRootPath( paths.sourceRoot );
@@ -100,13 +111,42 @@ u.getFreshRenderer = function( cfg ) {
 
 };
 
-u.renderFixture = function( fixtureName, callback, verbose ) {
+/**
+ * Convenience function for rendering a fixture.  This is used when the tests only
+ * need to verify the content of the renderer output.
+ *
+ * @param {string} fixtureName The name of the fixture, which should match a directory
+ * in `tests/fixtures/*`.
+ * @param {function} callback A callback that will be called once the render has completed.
+ * @param {?boolean|object} [cfg=false] A configuration object.  If an object is passed
+ * then it will be used to configure the renderer.  If a boolean is passed, then it will
+ * be used as the verbose setting (i.e. `{ verbose: cfg }`).  If this param is omitted
+ * or if anything else is passed (such as NULL), then a default cfg object will be
+ * constructed and used.
+ * @returns {void}
+ */
+u.renderFixture = function( fixtureName, callback, cfg ) {
 
-	var rndr = this.getRenderer( fixtureName, verbose );
-	rndr.render().then( callback );
+	// Create a renderer
+	var rndr = this.getRenderer( fixtureName, cfg );
+
+	// Render the fixture
+	rndr.render().then(
+
+		callback
+
+	);
 
 };
 
+/**
+ * This function will return the contents of a file
+ * that was output by the renderer after a fixture rendering op.
+ *
+ * @param {string} fixtureName The name of the fixture that was rendered.
+ * @param {string} filename A filename, relative to the `output` directory of the target fixture.
+ * @returns {string}
+ */
 u.getOutput = function( fixtureName, filename ) {
 
 	// Get the paths
@@ -161,8 +201,40 @@ u.checkHtmlOutput = function( fixtureName, filename, comparisonHtml ) {
 	// Load render result content
 	var contents = this.getOutput( fixtureName, filename );
 
+	//this.dbg("contents", contents);
+	//this.dbg("comparisonHtml", comparisonHtml);
+
 	// Assert equality
 	expect( contents ).html.to.equal( comparisonHtml );
+
+};
+
+u.debugOutput = function( fixtureName, filename ) {
+
+	var me = this;
+	var content = me.getOutput( fixtureName, filename );
+	me.dbg( fixtureName + " : " + filename, content );
+
+};
+
+u.fileShouldExist = function( fixtureName, filename ) {
+
+	// Locals
+	var me = this;
+	var exists = true;
+
+	// Find fixture paths
+	var paths = this.getPaths( fixtureName );
+
+	// Find target path
+	var targetPath = path.join( paths.outputRoot, filename );
+
+	// Stat
+	try {
+		fs.statSync( targetPath )
+	} catch( err ) {
+		throw new Error("Expected a file to exist at '" + targetPath + "', but it does not.");
+	}
 
 };
 
@@ -213,4 +285,13 @@ u.bl = function( count ) {
 
 u.lg = function( str ) {
 	console.log(str);
+};
+
+u.div = function() {
+
+	var me = this;
+	me.bl(2);
+	me.lg("-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~");
+	me.bl(2);
+
 };

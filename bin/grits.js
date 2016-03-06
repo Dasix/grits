@@ -19,6 +19,7 @@ program
 	.option("    --partials <path>", 		"Path to Dust.js partials. (Allows Multiple)", collect)
 	.option("    --layouts <path>", 		"Path to Dust.js layouts. (Allows Multiple)", collect)
 	.option("    --content <path>", 		"Path to site content. (Allows Multiple)", collect)
+	.option("    --static <path>", 			"Path to static content. (Allows Multiple)", collect)
 	.option("    --data <path>", 			"Path to data files. (Allows Multiple)", collect)
 	.option("    --sass <path>", 			"Path to SASS/SCSS source files. (Allows Multiple)", collect)
 	.option("    --sassi <path>", 			"Path to SASS/SCSS include files. (Allows Multiple)", collect)
@@ -120,7 +121,8 @@ var extraPaths = [
 	[ "content", 	"Content" 		],
 	[ "data", 		"Data"			],
 	[ "sass", 		"Sass"			],
-	[ "sassi", 		"SassInclude"	]
+	[ "sassi", 		"SassInclude"	],
+	[ "static", 	"StaticContent"	]
 ];
 
 // Process any helper paths

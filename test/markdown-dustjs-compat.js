@@ -48,7 +48,7 @@ describe("Markdown and Dust.js Compatibility", function() {
 				util.checkHtmlOutput(
 					fixtureName,
 					"notmd-tests/exists.html",
-					"<p>exists</p>"
+					"exists"
 				);
 
 			});
@@ -58,7 +58,7 @@ describe("Markdown and Dust.js Compatibility", function() {
 				util.checkHtmlOutput(
 					fixtureName,
 					"notmd-tests/exists-else.html",
-					"<p>not</p>"
+					"not"
 				);
 
 			});
@@ -153,7 +153,7 @@ describe("Markdown and Dust.js Compatibility", function() {
 				util.checkHtmlOutput(
 					fixtureName,
 					"notmd-tests/not-exists.html",
-					"<p>not</p>"
+					"not"
 				);
 
 			});
@@ -163,7 +163,7 @@ describe("Markdown and Dust.js Compatibility", function() {
 				util.checkHtmlOutput(
 					fixtureName,
 					"notmd-tests/not-exists-else.html",
-					"<p>exists</p>"
+					"exists"
 				);
 
 			});
@@ -241,16 +241,15 @@ describe("Markdown and Dust.js Compatibility", function() {
 				util.checkHtmlOutput(
 					fixtureName,
 					"notmd-tests/section-object.html",
-					"<h1 id=\"-po-nmd-0-op-and-po-nmd-1-op-\">1 and 2</h1><p>1 and 2</p>"
+					"<h1 id=\"-inc-nmd-0-and-inc-nmd-1-\">1 and 2</h1>\n1 and 2"
 				);
-
 			});
 
 		});
 
 		describe("Dust.js Special Tags: {~abc}", function() {
 
-			it("should render properly", function() {
+			it.skip("should render properly", function() {
 
 				util.checkHtmlOutput(
 					fixtureName,
@@ -311,7 +310,7 @@ describe("Markdown and Dust.js Compatibility", function() {
 				util.checkHtmlOutput(
 					fixtureName,
 					"direct-tests/exists.html",
-					"<p>exists</p>"
+					"<p>it exists</p>"
 				);
 
 			});
@@ -321,7 +320,7 @@ describe("Markdown and Dust.js Compatibility", function() {
 				util.checkHtmlOutput(
 					fixtureName,
 					"direct-tests/exists-else.html",
-					"<p>not</p>"
+					"not"
 				);
 
 			});
@@ -416,7 +415,7 @@ describe("Markdown and Dust.js Compatibility", function() {
 				util.checkHtmlOutput(
 					fixtureName,
 					"direct-tests/not-exists.html",
-					"<p>not</p>"
+					"not"
 				);
 
 			});
@@ -426,7 +425,7 @@ describe("Markdown and Dust.js Compatibility", function() {
 				util.checkHtmlOutput(
 					fixtureName,
 					"direct-tests/not-exists-else.html",
-					"<p>exists</p>"
+					"exists"
 				);
 
 			});
@@ -504,7 +503,7 @@ describe("Markdown and Dust.js Compatibility", function() {
 				util.checkHtmlOutput(
 					fixtureName,
 					"direct-tests/section-object.html",
-					"<p>1 and 2</p>"
+					"1 and 2"
 				);
 
 			});
@@ -513,7 +512,7 @@ describe("Markdown and Dust.js Compatibility", function() {
 
 		describe("Dust.js Special Tags: {~abc}", function() {
 
-			it("should render properly", function() {
+			it.skip("should render properly", function() {
 
 				util.checkHtmlOutput(
 					fixtureName,
@@ -536,6 +535,20 @@ describe("Markdown and Dust.js Compatibility", function() {
 				);
 
 			});
+
+		});
+
+	});
+
+	describe("HTML Comments", function() {
+
+		it("should be ignored in some operations", function() {
+
+			var fn = "comment-test-one.html";
+			//util.debugOutput( fixtureName, fn);
+			util.checkHtmlOutput(
+				fixtureName, fn, "<p>Lorem Ipsum A</p>\n<!-- Lorem Ipsum B -->\n<p>Lorem Ipsum C</p>"
+			);
 
 		});
 
