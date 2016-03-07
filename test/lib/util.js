@@ -96,7 +96,7 @@ u.getRenderer = function( name, cfg ) {
 /**
  * Creates a renderer
  *
- * @param {?object} cfg A configuration object to pass to the renderer
+ * @param {?object} [cfg=NULL] A configuration object to pass to the renderer
  * @returns {object}
  */
 u.getFreshRenderer = function( cfg ) {

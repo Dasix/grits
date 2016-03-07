@@ -7,12 +7,12 @@ var _ = util.lodash;
 var fixtureName = "plugins";
 
 // Tests
-describe("Plugins", function() {
+describe("Plugins:", function() {
 
 	var rndr;
 	var paths;
 
-	describe("Manual Initialization", function() {
+	describe("Manual Initialization:", function() {
 
 		it("should accept plugin constructor functions", function() {
 
@@ -100,7 +100,7 @@ describe("Plugins", function() {
 
 	});
 
-	describe("Constructor Initialization", function() {
+	describe("Constructor Initialization:", function() {
 
 		it("should accept plugins", function() {
 
@@ -131,7 +131,7 @@ describe("Plugins", function() {
 
 	});
 
-	describe("Rendering Hooks", function() {
+	describe("Rendering Hooks:", function() {
 
 		it("should work properly", function( cb ) {
 
@@ -152,9 +152,13 @@ describe("Plugins", function() {
 						root: paths.sourceRoot,
 						output: paths.outputRoot
 					},
-					autoClean: true
+					autoClean: true,
+					verbose: false,
+					logFilter: "plugin"
 				}
 			);
+
+			// Render
 			rndr.render().then(
 
 				function() {

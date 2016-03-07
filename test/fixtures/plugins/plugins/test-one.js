@@ -11,8 +11,8 @@ var pl = module.exports = function( renderer ) {
 	// Locals
 	var me = this;
 
-	// Config
-	me.evidenceStoreName = "test-one";
+	// Set the plugin name (which is REQUIRED for all plugins)
+	me.pluginName = "test-one";
 
 	// Init
 	me.addEventHandlers();
@@ -38,19 +38,19 @@ pr.addEvidence = function( renderer, name ) {
 		renderer.__evidence = {};
 	}
 
-	if( renderer.__evidence[ me.evidenceStoreName ] === undefined ) {
-		renderer.__evidence[ me.evidenceStoreName ] = {
+	if( renderer.__evidence[ me.pluginName ] === undefined ) {
+		renderer.__evidence[ me.pluginName ] = {
 			constructor: false
 		};
 
 		var events = me.getEventNames();
 		_.each( events, function( evn ) {
-			renderer.__evidence[ me.evidenceStoreName ][ evn ] = false;
+			renderer.__evidence[ me.pluginName ][ evn ] = false;
 		});
 
 	}
 
-	renderer.__evidence[ me.evidenceStoreName ][ name ] = true;
+	renderer.__evidence[ me.pluginName ][ name ] = true;
 
 };
 
