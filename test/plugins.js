@@ -190,7 +190,7 @@ describe("Plugins:", function() {
 
 	describe("Plugin Path Logic:", function() {
 
-		it.only("should protect plugin paths from cleaning ops", function() {
+		it("should protect plugin paths from cleaning ops", function() {
 
 			// Resolve paths
 			var paths = util.getPaths( fixtureName );
@@ -202,7 +202,7 @@ describe("Plugins:", function() {
 					plugins: [
 						ppath
 					],
-					verbose: true,
+					verbose: false,
 					paths: {
 						root : ["/x/y/z"]
 					}
