@@ -190,7 +190,7 @@ describe("Plugins:", function() {
 
 	describe("Plugin Path Logic:", function() {
 
-		it("should protect plugin paths from cleaning ops", function() {
+		it.only("should protect plugin paths from cleaning ops", function() {
 
 			// Resolve paths
 			var paths = util.getPaths( fixtureName );
@@ -202,12 +202,15 @@ describe("Plugins:", function() {
 					plugins: [
 						ppath
 					],
-					verbose: false
+					verbose: true,
+					paths: {
+						root : ["/x/y/z"]
+					}
 				}
 			);
 
 			// We should start with 17 paths...
-			expect( rndr.countFilterPaths() ).to.equal( 17 );
+			expect( rndr.countFilterPaths() ).to.equal( 18 );
 
 			// Clear the non-plugin paths
 			rndr.clearAllPaths();
