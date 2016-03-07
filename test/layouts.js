@@ -12,8 +12,9 @@ describe("Layouts", function() {
 		util.renderFixture( fixtureName, function() {
 			cb();
 		}, {
+			//verbose: true,
 			verbose: false,
-			logFilter: "layout"
+			logFilter: "markdown"
 		});
 	});
 
@@ -51,7 +52,9 @@ describe("Layouts", function() {
 			var fn = "markdown-with-def.html";
 			util.checkHtmlOutput( fixtureName, fn,
 				"<body>\n" +
-				"\t<div class=\"basic-layout\"><strong>hello</strong> <em>world</em><br></div>\n" +
+				"\t<div class=\"basic-layout\">" +
+				"<p><strong>hello</strong> <em>world</em></p>\n" +
+				"</div>\n" +
 				"</body>\n\n"
 			);
 
@@ -62,8 +65,20 @@ describe("Layouts", function() {
 			var fn = "markdown-no-def.html";
 			util.checkHtmlOutput( fixtureName, fn,
 				"<body>\n" +
-				"\t<div class=\"basic-layout\"><strong>hello</strong> <em>world</em><br></div>\n" +
+				"\t<div class=\"basic-layout\">" +
+				"<p><strong>hello</strong> <em>world</em></p>\n" +
+				"</div>\n" +
 				"</body>\n\n"
+			);
+
+			var fn = "another-test.html";
+			util.checkHtmlOutput( fixtureName, fn,
+				"<body>\n" +
+				"    <div class=\"basic-layout\">\n" +
+				"<h1 id=\"a-heading\">A Heading</h1>\n" +
+				"<p>Hello world..</p>\n" +
+				"</div>\n" +
+				"</body>"
 			);
 
 		});
