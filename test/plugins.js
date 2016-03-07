@@ -188,6 +188,93 @@ describe("Plugins:", function() {
 
 	});
 
+	describe("Plugin Path Logic:", function() {
+
+		it("should protect plugin paths from cleaning ops", function() {
+
+			// Resolve paths
+			var paths = util.getPaths( fixtureName );
+			var ppath = util.path.join( paths.fixtureRoot, "plugins/path-tester.js" );
+
+			// Create a renderer
+			rndr = util.getFreshRenderer(
+				{
+					plugins: [
+						ppath
+					],
+					verbose: false
+				}
+			);
+
+			// We should start with 17 paths...
+			expect( rndr.countFilterPaths() ).to.equal( 17 );
+
+			// Clear the non-plugin paths
+			rndr.clearAllPaths();
+
+			// Now we should have 12 paths...
+			expect( rndr.countFilterPaths() ).to.equal( 12 );
+
+		});
+
+		it("should not protect plugin paths from forced cleans", function() {
+
+			// Resolve paths
+			var paths = util.getPaths( fixtureName );
+			var ppath = util.path.join( paths.fixtureRoot, "plugins/path-tester.js" );
+
+			// Create a renderer
+			rndr = util.getFreshRenderer(
+				{
+					plugins: [
+						ppath
+					],
+					verbose: false
+				}
+			);
+
+			// We should start with 17 paths...
+			expect( rndr.countFilterPaths() ).to.equal( 17 );
+
+			// Clear the non-plugin paths
+			rndr.clearAllPaths( true );
+
+			// Now we should have 12 paths...
+			expect( rndr.countFilterPaths() ).to.equal( 0 );
+
+		});
+
+		it("should allow single-plugin paths to be removed", function() {
+
+			// Resolve paths
+			var paths = util.getPaths( fixtureName );
+			var ppath = util.path.join( paths.fixtureRoot, "plugins/path-tester.js" );
+
+			// Create a renderer
+			rndr = util.getFreshRenderer(
+				{
+					plugins: [
+						ppath
+					],
+					verbose: false
+				}
+			);
+
+			// Get the path manager
+			var pm = rndr.getPathManager();
+
+			// We should start with 17 paths...
+			expect( rndr.countFilterPaths() ).to.equal( 17 );
+
+			// Clear the plugin paths for plugin: "path-tester"
+			pm.clearPluginPaths( "path-tester" );
+
+			// Now we should have 8 paths...
+			expect( rndr.countFilterPaths() ).to.equal( 8 );
+
+		});
+
+	});
 
 	describe.skip("CLI Usage:", function() {
 
