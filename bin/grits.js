@@ -73,7 +73,6 @@ if( program.verbose !== undefined ) {
 
 
 // Process the 'log-filter' setting
-//console.log(program);
 if( program.logFilter !== undefined ) {
 	gritsConfig.logFilter = program.logFilter;
 }
@@ -87,6 +86,11 @@ if( program.config !== undefined ) {
 // Process the 'clean' setting
 if( program.clean !== undefined ) {
 	gritsConfig.autoClean = true;
+}
+
+// Process the 'plugin' setting
+if( program.plugin !== undefined ) {
+	gritsConfig.plugins = program.plugin;
 }
 
 // Process any output paths
@@ -157,13 +161,13 @@ _.each( extraPaths, function( epInfo ) {
 
 if( program.preview !== undefined ) {
 
-	console.log("");
-	console.log("");
+	console.log(" ");
+	console.log(" ");
 	console.log("Dumping Grits Config:");
-	console.log("");
+	console.log(" ");
 	console.log( grits.getConfig() );
-	console.log("");
-	console.log("");
+	console.log(" ");
+	console.log(" ");
 
 } else {
 

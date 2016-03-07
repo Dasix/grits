@@ -1,3 +1,5 @@
+var _ = require("lodash");
+
 /**
  * This is a simple mock/test plugin for grits that
  * simply provides evidence that it has been included

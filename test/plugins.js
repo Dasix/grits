@@ -188,4 +188,44 @@ describe("Plugins:", function() {
 
 	});
 
+
+	describe.skip("CLI Usage:", function() {
+
+		it("should work properly", function( cb ) {
+
+			var args = [
+				"-w",
+				"--plugin plugins/test-one.js",
+				"--plugin ./plugins/test-two.js",
+				//"-v",
+				"--log-filter plugin"
+			];
+			//var args = ["--log-filter" ,"plugin", "-w" ];
+
+
+			util.cli( fixtureName, args, function( err, stdout, stderr ) {
+
+				/*
+				console.log(" ");
+				console.log("------- RAW OUTPUT -------------------------------------------");
+				console.log(" ");
+				console.log( stdout );
+				console.log(" ");
+				*/
+
+				/*
+				console.log("------- ARRAY OUTPUT -------------------------------------------");
+				console.log(" ");
+				console.log( arrLogs );
+				console.log(" ");
+				*/
+
+				cb( err );
+
+			});
+
+		});
+
+	});
+
 });
