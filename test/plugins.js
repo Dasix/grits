@@ -158,6 +158,10 @@ describe("Plugins:", function() {
 				}
 			);
 
+			//rndr.setVerbose( true );
+			//rndr.setLogFilter( "plugin" );
+
+
 			// Render
 			rndr.render().then(
 
@@ -171,7 +175,11 @@ describe("Plugins:", function() {
 
 						_.each( rndr.__evidence[ pluginName ], function( val, eventName ) {
 
-							expect( val ).to.equal( true );
+							if( !val ) {
+
+								throw new Error("Plugin '" + pluginName + "' expected a call to its '" + eventName + "' listener, but never received one.");
+
+							}
 
 						});
 

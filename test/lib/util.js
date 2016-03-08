@@ -269,25 +269,97 @@ u.checkHtmlOutput = function( fixtureName, filename, comparisonHtml ) {
  *
  * @param {string} fixtureName The name of the fixture that was rendered.
  * @param {string} filename A filename, relative to the `output` directory of the target fixture.
+ * @param {string} [outputDirName=""] If provided this string will be used as
+ * the name of the output directory instead of the default, which is "output".
  * @returns {void}
  */
-u.fileShouldExist = function( fixtureName, filename ) {
+u.fileShouldExist = function( fixtureName, filename, outputDirName ) {
 
 	// Locals
 	var me = this;
-	var exists = true;
+	var exists = me._exists( fixtureName, filename, outputDirName );
+	var dispOutput;
 
-	// Find fixture paths
-	var paths = this.getPaths( fixtureName );
+	// Default param: outputDirName
+	if( outputDirName === undefined || outputDirName === null ) {
+		outputDirName = null;
+		dispOutput = "output";
+	} else {
+		dispOutput = outputDirName;
+	}
 
-	// Find target path
-	var targetPath = path.join( paths.outputRoot, filename );
+	// Assert
+	if( !exists ) {
+		throw new Error("Expected '" + filename + "' to EXIST in '" + dispOutput + "' directory for fixture: '" + fixtureName + "'; but the file was not found.");
+	}
+
+};
+
+/**
+ * Asserts that a file should NOT exist
+ *
+ * @param {string} fixtureName The name of the fixture that was rendered.
+ * @param {string} filename A filename, relative to the `output` directory of the target fixture.
+ * @param {string} [outputDirName=""] If provided this string will be used as
+ * the name of the output directory instead of the default, which is "output".
+ * @returns {void}
+ */
+u.fileShouldNotExist = function( fixtureName, filename, outputDirName ) {
+
+	// Locals
+	var me = this;
+	var exists = me._exists( fixtureName, filename, outputDirName );
+	var dispOutput;
+
+	// Default param: outputDirName
+	if( outputDirName === undefined || outputDirName === null ) {
+		outputDirName = null;
+		dispOutput = "output";
+	} else {
+		dispOutput = outputDirName;
+	}
+
+	// Assert
+	if( exists ) {
+		throw new Error("Expected '" + filename + "' to NOT EXIST in '" + dispOutput + "' directory for fixture: '" + fixtureName + "'; but the file was found.");
+	}
+
+};
+
+/**
+ * Checks to see if a file exists
+ *
+ * @param {string} fixtureName The name of the fixture that was rendered.
+ * @param {string} filename A filename, relative to the `output` directory of the target fixture.
+ * @param {string} [outputDirName=""] If provided this string will be used as
+ * the name of the output directory instead of the default, which is "output".
+ * @returns {boolean} TRUE if the file exists; FALSE otherwise.
+ */
+u._exists = function( fixtureName, filename, outputDirName ) {
+
+	// Locals
+	var me 		= this;
+	var exists 	= true;
+	var paths 	= this.getPaths( fixtureName );
+	var outputPath;
+	var targetPath;
+
+	// Default param: outputDirName
+	if( outputDirName === undefined || outputDirName === null ) {
+		outputPath = paths.outputRoot;
+	} else {
+		outputPath = path.join( paths.fixtureRoot, outputDirName );
+	}
+
+	// Resolve the final file path
+	targetPath = path.join( outputPath, filename );
 
 	// Stat
 	try {
-		fs.statSync( targetPath )
+		fs.statSync( targetPath );
+		return true;
 	} catch( err ) {
-		throw new Error("Expected a file to exist at '" + targetPath + "', but it does not.");
+		return false;
 	}
 
 };
