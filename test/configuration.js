@@ -95,6 +95,33 @@ describe("Configuration", function() {
 
 		});
 
+		describe("Configuration via render()", function() {
+
+			it("should be possible", function() {
+
+				var paths = rndr.getAllPaths();
+
+				rndr.render({
+					paths: {
+						partial: [
+							"/some/partials"
+						]
+					}
+				}).then(
+
+					function afterRender() {
+
+						var paths = rndr.getAllPaths();
+						expect( paths.partial[0] 	).to.equal( "/some/partials" );
+
+					}
+
+				);
+
+			});
+
+		});
+
 		describe("Object Configuration", function() {
 
 			it("should be possible with two path properties", function() {
