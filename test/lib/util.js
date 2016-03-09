@@ -33,7 +33,7 @@ var u = module.exports = {
 /**
  * Creates a renderer that is preloaded with fixture paths.
  *
- * @param {string} name
+ * @param {string} fixtureName
  * @param {?boolean|object} [cfg=false] A configuration object.  If an object is passed
  * then it will be used to configure the renderer.  If a boolean is passed, then it will
  * be used as the verbose setting (i.e. `{ verbose: cfg }`).  If this param is omitted
@@ -41,7 +41,7 @@ var u = module.exports = {
  * constructed and used.
  * @returns {object}
  */
-u.getRenderer = function( name, cfg ) {
+u.getRenderer = function( fixtureName, cfg ) {
 
 	// Locals
 	var me = this;
@@ -58,7 +58,7 @@ u.getRenderer = function( name, cfg ) {
 	}
 
 	// Get the paths
-	var paths = me.getPaths( name );
+	var paths = me.getPaths( fixtureName );
 
 	// Init Renderer
 	var rndr = me.getFreshRenderer( cfg );
