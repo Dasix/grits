@@ -114,9 +114,9 @@ u.renderFixture = function( fixtureName, callback, cfg ) {
 
 	// Render the fixture
 	rndr.render().then(
-
-		callback
-
+		function() {
+			callback( rndr );
+		}
 	);
 
 };
@@ -277,7 +277,7 @@ u.fileShouldExist = function( fixtureName, filename, outputDirName ) {
 
 	// Locals
 	var me = this;
-	var exists = me._exists( fixtureName, filename, outputDirName );
+	var exists = me.exists( fixtureName, filename, outputDirName );
 	var dispOutput;
 
 	// Default param: outputDirName
@@ -308,7 +308,7 @@ u.fileShouldNotExist = function( fixtureName, filename, outputDirName ) {
 
 	// Locals
 	var me = this;
-	var exists = me._exists( fixtureName, filename, outputDirName );
+	var exists = me.exists( fixtureName, filename, outputDirName );
 	var dispOutput;
 
 	// Default param: outputDirName
@@ -335,7 +335,32 @@ u.fileShouldNotExist = function( fixtureName, filename, outputDirName ) {
  * the name of the output directory instead of the default, which is "output".
  * @returns {boolean} TRUE if the file exists; FALSE otherwise.
  */
-u._exists = function( fixtureName, filename, outputDirName ) {
+u.exists = function( fixtureName, filename, outputDirName ) {
+
+	// Locals
+	var me 		= this;
+	var stat	= me.stat( fixtureName, filename, outputDirName );
+
+	// Return
+	if( stat === null ) {
+		return false;
+	} else {
+		return true;
+	}
+
+};
+
+/**
+ * Gets statistics for a file
+ *
+ * @param {string} fixtureName The name of the fixture that was rendered.
+ * @param {string} filename A filename, relative to the `output` directory of the target fixture.
+ * @param {string} [outputDirName=""] If provided this string will be used as
+ * the name of the output directory instead of the default, which is "output".
+ * @returns {object|null} An object with stats or NULL if stats could not be gathered
+ * (usually because the target file does not exist).
+ */
+u.stat = function( fixtureName, filename, outputDirName ) {
 
 	// Locals
 	var me 		= this;
@@ -356,11 +381,39 @@ u._exists = function( fixtureName, filename, outputDirName ) {
 
 	// Stat
 	try {
-		fs.statSync( targetPath );
-		return true;
+		return fs.statSync( targetPath );
 	} catch( err ) {
-		return false;
+		return null;
 	}
+
+};
+
+/**
+ * Gets mtime (last modified time) for a file
+ *
+ * @param {string} fixtureName The name of the fixture that was rendered.
+ * @param {string} filename A filename, relative to the `output` directory of the target fixture.
+ * @param {string} [outputDirName=""] If provided this string will be used as
+ * the name of the output directory instead of the default, which is "output".
+ * @returns {object|null} An integer representing the target's last modified time (in ms)
+ * or NULL if it could not be determined (usually because the file could not be found)
+ */
+u.mtime = function( fixtureName, filename, outputDirName ) {
+
+	// Locals
+	var me = this;
+
+	// Stat the file
+	var stat = me.stat( fixtureName, filename, outputDirName );
+
+	// Return null, if applicable
+	if( stat === null ) {
+		return null;
+	}
+
+	// Get the mtime
+	var mdt = stat.mtime;
+	return mdt.getTime();
 
 };
 
