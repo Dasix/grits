@@ -6,12 +6,15 @@ require( "../../index" );
 
 // Dependencies
 var path 	= require( "path" );
-var fs		= require( "fs" );
+var fs		= require( "fs-extra" );
+var Promise = require( "bluebird" );
 var chai 	= require( "chai" );
 var expect 	= chai.expect;
 var _		= require( "lodash" );
 var tipe	= require( "tipe" );
 var cproc	= require( "child_process" );
+
+Promise.promisifyAll( fs );
 
 // Chai Plugins
 chai.use( require("chai-html") 	);
@@ -22,7 +25,8 @@ var u = module.exports = {
 	chai   : chai,
 	expect : expect,
 	path   : path,
-	fs     : fs
+	fs     : fs,
+	Promise: Promise
 };
 
 //</editor-fold>

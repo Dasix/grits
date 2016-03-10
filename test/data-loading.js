@@ -39,7 +39,7 @@ describe("Data Loading", function() {
 
 		it("should exist for content pages that do not have any front-matter", function() {
 
-			var cd = rndr.getContextData();
+			var cd = rndr.dataManager.getContextData();
 
 			// Ensure the data exists for our "front-matter-empty" page
 			expect( cd ).to.be.an( "object" );
@@ -50,7 +50,7 @@ describe("Data Loading", function() {
 
 		it("should exist for content pages that do have front-matter", function() {
 
-			var cd = rndr.getContextData();
+			var cd = rndr.dataManager.getContextData();
 
 			// Ensure the data exists for our "front-matter-basic" page
 			expect( cd ).to.be.an( "object" );
@@ -92,7 +92,7 @@ describe("Data Loading", function() {
 
 		it("should use last-in conflict resolution for duplicate content", function() {
 
-			var cd = rndr.getContextData();
+			var cd = rndr.dataManager.getContextData();
 
 			expect( cd.page ).to.be.an( "object" );
 			expect( cd.page.conflict ).to.be.an( "object" );
@@ -110,7 +110,7 @@ describe("Data Loading", function() {
 
 			it("should load simple data", function() {
 
-				var cd = rndr.getContextData();
+				var cd = rndr.dataManager.getContextData();
 
 				// Ensure the data exists for our "simple.json" data file
 				expect( cd ).to.be.an( "object" );
@@ -152,7 +152,7 @@ describe("Data Loading", function() {
 
 			it("should load deep data", function() {
 
-				var cd = rndr.getContextData();
+				var cd = rndr.dataManager.getContextData();
 
 				// Ensure the data exists for our "deep.json" data file
 				expect( cd ).to.be.an( "object" );
@@ -198,7 +198,7 @@ describe("Data Loading", function() {
 
 			it("should use last-in scalar values", function() {
 
-				var cd = rndr.getContextData();
+				var cd = rndr.dataManager.getContextData();
 
 				// There is no reasonable way to resolve scalar
 				// conflicts so each read should overwrite the
@@ -210,7 +210,7 @@ describe("Data Loading", function() {
 
 			it("should use last-in object values", function() {
 
-				var cd = rndr.getContextData();
+				var cd = rndr.dataManager.getContextData();
 
 				// For objects, we handle them much like scalars.
 				// If we try to deep merge ALL objects in the data tree
@@ -229,7 +229,7 @@ describe("Data Loading", function() {
 
 			it("should concatenate arrays", function() {
 
-				var cd = rndr.getContextData();
+				var cd = rndr.dataManager.getContextData();
 
 				// For arrays in the root level of the data file, we want to
 				// concenate them together.
@@ -249,7 +249,7 @@ describe("Data Loading", function() {
 
 			it("should make arrays of scalars unique", function() {
 
-				var cd = rndr.getContextData();
+				var cd = rndr.dataManager.getContextData();
 
 				// For arrays in the root level of the data file, we want to
 				// concenate them together.
@@ -264,7 +264,7 @@ describe("Data Loading", function() {
 
 			it("should sort arrays of scalars", function() {
 
-				var cd = rndr.getContextData();
+				var cd = rndr.dataManager.getContextData();
 
 				// Arrays of scalars should be automatically sorted
 				// after the "unique" operation.
