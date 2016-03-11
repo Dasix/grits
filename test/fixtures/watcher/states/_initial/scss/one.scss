@@ -1,0 +1,15 @@
+@import "inline-one";
+@import "inc-one";
+@import "../scss-extern/extern-one";
+.inline {
+	color: $theColorInline;
+}
+.inc {
+	color: $theColorInc;
+}
+.extern {
+	color: $theColorExtern;
+}
+.meee {
+	color: red;
+}

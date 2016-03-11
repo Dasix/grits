@@ -12,8 +12,8 @@ describe("Helpers", function() {
 		util.renderFixture( fixtureName, function() {
 			cb();
 		}, {
-			verbose: true,
-			//verbose: false,
+			//verbose: true,
+			verbose: false,
 			logFilter: "helper"
 		});
 	});

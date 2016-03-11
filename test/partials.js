@@ -6,14 +6,14 @@ var expect  = util.expect;
 var fixtureName = "partials";
 
 // Tests
-describe.only("partials", function() {
+describe("partials", function() {
 
 	before( function( cb ) {
 		util.renderFixture( fixtureName, function() {
 			cb();
 		}, {
-			verbose: true,
-			//verbose: false,
+			//verbose: true,
+			verbose: false,
 			logFilter: "partial"
 		});
 	});

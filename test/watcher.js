@@ -9,7 +9,7 @@ var fs = util.fs;
 var fixtureName = "watcher";
 
 // Tests
-describe.skip("Watcher", function() {
+describe("Watcher", function() {
 
 	var rndr;
 
@@ -19,13 +19,16 @@ describe.skip("Watcher", function() {
 
 			function() {
 
+				var paths = util.getPaths( fixtureName );
+
 				// Configuration for the renderer
 				var cfg = {
+					//verbose: true,
 					verbose: false,
-					watch: {
-						enabled: true,
-						interval: 100,
-						binaryInterval: 300
+					watch: true,
+					paths: {
+						static: util.path.join( paths.sourceRoot, "static" ),
+						sassi: util.path.join( paths.sourceRoot, "scss-inc" )
 					}
 				};
 
@@ -43,6 +46,13 @@ describe.skip("Watcher", function() {
 
 		);
 
+	});
+
+	after( function( cb ) {
+		rndr.watchManager.unwatch();
+		setTimeout( function() {
+			cb();
+		}, 200);
 	});
 
 	describe("Pre-Test Conditions:", function() {
@@ -65,9 +75,9 @@ describe.skip("Watcher", function() {
 
 	describe("Content Watching:", function() {
 
-		it("should work as expected", function( cb ) {
+		it("should function properly when new content is added", function( cb ) {
 
-			wAddState("content-one" ).delay(200).then(
+			wAddState("content-one").delay(250).then(
 
 				function() {
 
@@ -75,12 +85,406 @@ describe.skip("Watcher", function() {
 					util.fileShouldExist( fixtureName, "somecontent.html" );
 					util.fileShouldExist( fixtureName, "subdir/morecontent.html" );
 
+					// Check somecontent's HTML
+					var fn = "somecontent.html";
+					util.checkHtmlOutput( fixtureName, fn,
+						"<p>hello mars</p>"
+					);
+
+
 				}
 
-			).delay(200).then(
+			).delay(50).then(
 
 				function() {
-					rndr.watchManager.unwatch();
+					cb();
+				}
+
+			);
+
+		});
+
+		it("should function properly when content is updated", function( cb ) {
+
+			wAddState("content-two").delay(250).then(
+
+				function() {
+
+					// Check somecontent's HTML
+					var fn = "somecontent.html";
+					util.checkHtmlOutput( fixtureName, fn,
+						"<p>hello earth</p>"
+					);
+
+				}
+
+			).delay(50).then(
+
+				function() {
+					cb();
+				}
+
+			);
+
+		});
+
+	});
+
+	describe("Partial Watching:", function() {
+
+		it("should function properly when a partial is changed", function( cb ) {
+
+			var initialHtml = "<em>hi</em>";
+			var updatedHtml = "<em>hello</em>";
+
+			// Initial Tests
+			util.checkHtmlOutput( fixtureName, "simple-partial-test-a.html", initialHtml);
+			util.checkHtmlOutput( fixtureName, "simple-partial-test-b.html", initialHtml);
+			util.checkHtmlOutput( fixtureName, "nested-partial-test.html",   initialHtml);
+
+			wAddState("partial-one").delay(250).then(
+
+				function() {
+
+					util.checkHtmlOutput( fixtureName, "simple-partial-test-a.html", updatedHtml);
+					util.checkHtmlOutput( fixtureName, "simple-partial-test-b.html", updatedHtml);
+					util.checkHtmlOutput( fixtureName, "nested-partial-test.html", 	 updatedHtml);
+
+				}
+
+			).delay(50).then(
+
+				function() {
+					cb();
+				}
+
+			);
+
+
+		});
+
+	});
+
+	describe("Layout Watching:", function() {
+
+		it("should function properly when a layout is changed", function( cb ) {
+
+			var initialHtml = "<div id=\"mars\">hello\n</div>";
+			var updatedHtml = "<div id=\"world\">hello\n</div>";
+
+			util.checkHtmlOutput( fixtureName, "layout-test-a.html", initialHtml);
+			util.checkHtmlOutput( fixtureName, "layout-test-b.html", initialHtml);
+
+			wAddState("layouts-one").delay(250).then(
+
+				function() {
+
+					util.checkHtmlOutput( fixtureName, "layout-test-a.html", updatedHtml);
+					util.checkHtmlOutput( fixtureName, "layout-test-b.html", updatedHtml);
+
+				}
+
+			).delay(50).then(
+
+				function() {
+					cb();
+				}
+
+			);
+
+
+		});
+
+	});
+
+	describe("Handler Watching:", function() {
+
+		it("should function properly when a handler is changed", function( cb ) {
+
+			var initialHtml = "<p>hello world</p>";
+			var updatedHtml = "<p>hello mars</p>";
+
+			//util.debugOutput( fixtureName, "simple-handler-test-a.html" );
+			//util.debugOutput( fixtureName, "simple-handler-test-b.html" );
+
+			util.checkHtmlOutput( fixtureName, "simple-handler-test-a.html", initialHtml);
+			util.checkHtmlOutput( fixtureName, "simple-handler-test-b.html", initialHtml);
+
+			wAddState("handlers-one").delay(250).then(
+
+				function() {
+
+					util.checkHtmlOutput( fixtureName, "simple-handler-test-a.html", updatedHtml);
+					util.checkHtmlOutput( fixtureName, "simple-handler-test-b.html", updatedHtml);
+
+				}
+
+			).delay(50).then(
+
+				function() {
+					cb();
+				}
+
+			);
+
+
+		});
+
+	});
+
+	describe("Helper Watching:", function() {
+
+		it("should function properly when a helper is changed", function( cb ) {
+
+			var initialHtml = "<p>hello world</p>";
+			var updatedHtml = "<p>hello mars</p>";
+
+			util.checkHtmlOutput( fixtureName, "simple-helper-test-a.html", initialHtml);
+			util.checkHtmlOutput( fixtureName, "simple-helper-test-b.html", initialHtml);
+
+			wAddState("helpers-one").delay(250).then(
+
+				function() {
+
+					//util.debugOutput( fixtureName, "simple-helper-test-a.html" );
+					//util.debugOutput( fixtureName, "simple-helper-test-b.html" );
+
+					util.checkHtmlOutput( fixtureName, "simple-helper-test-a.html", updatedHtml);
+					util.checkHtmlOutput( fixtureName, "simple-helper-test-b.html", updatedHtml);
+
+				}
+
+			).delay(50).then(
+
+				function() {
+					cb();
+				}
+
+			);
+
+
+		});
+
+	});
+
+	describe("Filter Watching:", function() {
+
+		it("should function properly when a filter is changed", function( cb ) {
+
+			var initialHtml = "<p>hello world</p>";
+			var updatedHtml = "<p>hello mars</p>";
+
+			util.checkHtmlOutput( fixtureName, "simple-filter-test-a.html", initialHtml);
+			util.checkHtmlOutput( fixtureName, "simple-filter-test-b.html", initialHtml);
+
+			wAddState("filters-one").delay(250).then(
+
+				function() {
+
+					//util.debugOutput( fixtureName, "simple-filter-test-a.html" );
+					//util.debugOutput( fixtureName, "simple-filter-test-b.html" );
+
+					util.checkHtmlOutput( fixtureName, "simple-filter-test-a.html", updatedHtml);
+					util.checkHtmlOutput( fixtureName, "simple-filter-test-b.html", updatedHtml);
+
+				}
+
+			).delay(50).then(
+
+				function() {
+					cb();
+				}
+
+			);
+
+
+		});
+
+	});
+
+	describe("Static Content Watching:", function() {
+
+		it("should function properly when a file is added", function( cb ) {
+
+			util.fileShouldNotExist( fixtureName, "hello-world-inline.png" );
+			util.fileShouldNotExist( fixtureName, "images/hello-world-b.png" );
+
+			wAddState("static-content-one").delay(250).then(
+
+				function() {
+
+					util.fileShouldExist( fixtureName, "hello-world-inline.png" );
+					util.fileShouldExist( fixtureName, "images/hello-world-b.png" );
+
+				}
+
+			).delay(50).then(
+
+				function() {
+					cb();
+				}
+
+			);
+
+
+		});
+
+	});
+
+	describe("Data File Watching:", function() {
+
+		it("should function properly when a data file is changed", function( cb ) {
+
+			var context = rndr.dataManager.getContextData();
+			var data = context.data;
+
+			expect( data.test.hello ).to.equal( "world" );
+
+			wAddState("data-one").delay(250).then(
+
+				function() {
+
+					var context = rndr.dataManager.getContextData();
+					var data = context.data;
+
+					expect( data.test.hello ).to.equal( "mars" );
+
+				}
+
+			).delay(50).then(
+
+				function() {
+					cb();
+				}
+
+			);
+
+
+		});
+
+	});
+
+	describe("SASS/SCSS Watching:", function() {
+
+		// These do need to be executed in order..
+
+		it("should function properly when a scss source file is changed", function( cb ) {
+
+			// Gather current value
+			var out = util.getOutput( fixtureName, "css/one.css" );
+
+			// Initial Conditions Test
+			expect( out ).to.equal( wScssString( "red", "red", "red", "red" ) );
+
+			wAddState("sass-one").delay(250).then(
+
+				function() {
+
+					// Gather new value
+					var out = util.getOutput( fixtureName, "css/one.css" );
+
+					// New Conditions Test
+					expect( out ).to.equal( wScssString( "red", "red", "red", "green" ) );
+					//console.log(out);
+
+				}
+
+			).delay(50).then(
+
+				function() {
+					cb();
+				}
+
+			);
+
+
+		});
+
+		it("should function properly when a scss include is changed (inline)", function( cb ) {
+
+			// Gather current value
+			var out = util.getOutput( fixtureName, "css/one.css" );
+
+			// Initial Conditions Test
+			expect( out ).to.equal( wScssString( "red", "red", "red", "green" ) );
+
+			wAddState("sass-two").delay(250).then(
+
+				function() {
+
+					// Gather new value
+					var out = util.getOutput( fixtureName, "css/one.css" );
+
+					// New Conditions Test
+					expect( out ).to.equal( wScssString( "green", "red", "red", "green" ) );
+
+				}
+
+			).delay(50).then(
+
+				function() {
+					cb();
+				}
+
+			);
+
+
+		});
+
+		it("should function properly when a scss include is changed (in an include path)", function( cb ) {
+
+			// Gather current value
+			var out = util.getOutput( fixtureName, "css/one.css" );
+
+			// Initial Conditions Test
+			expect( out ).to.equal( wScssString( "green", "red", "red", "green" ) );
+
+			wAddState("sass-three").delay(250).then(
+
+				function() {
+
+					// Gather new value
+					var out = util.getOutput( fixtureName, "css/one.css" );
+
+					// New Conditions Test
+					expect( out ).to.equal( wScssString( "green", "green", "red", "green" ) );
+
+				}
+
+			).delay(50).then(
+
+				function() {
+					cb();
+				}
+
+			);
+
+
+		});
+
+		it("should function properly when a scss source file is changed", function( cb ) {
+
+			// Gather current value
+			var out = util.getOutput( fixtureName, "css/one.css" );
+
+			// Initial Conditions Test
+			expect( out ).to.equal( wScssString( "green", "green", "red", "green" ) );
+
+			wAddState("sass-four").delay(250).then(
+
+				function() {
+
+					// Gather new value
+					var out = util.getOutput( fixtureName, "css/one.css" );
+
+					// New Conditions Test
+					expect( out ).to.equal( wScssString( "green", "green", "green", "green" ) );
+
+				}
+
+			).delay(50).then(
+
+				function() {
 					cb();
 				}
 
@@ -93,7 +497,28 @@ describe.skip("Watcher", function() {
 
 });
 
+function wScssString( inlineColor, includeColor, externColor, meeeColor ) {
+
+	var expected = [
+		".inline {",
+		"\tcolor: " + inlineColor + "; }", "",
+		".inc {",
+		"\tcolor: " + includeColor + "; }", "",
+		".extern {",
+		"\tcolor: " + externColor + "; }", "",
+		".meee {",
+		"\tcolor: " + meeeColor + "; }", ""
+	];
+	return expected.join("\n");
+
+	//'.inline {\n\tcolor: red; }\n\n.inc {\n\tcolor: red; }\n\n.extern {\n\tcolor: red; }\n\n.meee {\n\tcolor: red; }\n' to equal
+	//'.one {\n\tinline: red; }\n\n.two {\n\tinc: red; }\n\n.three {\n\textern: red; }\n\n.meee {\n\tcolor: red; }\n'
+
+}
+
 function wSetState( stateName ) {
+
+	//console.log("-- set --");
 
 	return wResetState().then(
 		function afterStateReset() {
@@ -105,16 +530,28 @@ function wSetState( stateName ) {
 
 function wResetState() {
 
+	//console.log("-- reset --");
+
 	var paths = util.getPaths( fixtureName );
 
 	return p.all([
 		fs.removeAsync( paths.outputRoot ),
 		fs.removeAsync( paths.sourceRoot )
-	]);
+	] ).catch(
+
+		function( err ) {
+
+			console.log(err);
+
+		}
+
+	);
 
 }
 
 function wAddState( stateName ) {
+
+	//console.log("-- add: " + stateName + " --");
 
 	var paths 		= util.getPaths( fixtureName );
 	var statePath 	= util.path.join( paths.fixtureRoot, "states", stateName );
@@ -126,7 +563,26 @@ function wAddState( stateName ) {
 
 		var prm = fs.mkdirsAsync( targetDir ).then(
 			function() {
-				return fs.copyAsync( item.path, targetFile );
+				return fs.copyAsync( item.path, targetFile ).catch(
+
+					function( err ) {
+
+						console.log(" ");
+						console.log(" ");
+						console.log(" ");
+						console.log("Error in wAddState( '" + stateName + "' )");
+						console.log("  -> fs.copyAsync");
+						console.log("    -> from : " + item.path);
+						console.log("    -> to   : " + targetFile);
+						console.log(" ");
+						console.log(err);
+						console.log(" ");
+						console.log(" ");
+						console.log(" ");
+
+					}
+
+				);
 			}
 
 		);

@@ -1,4 +1,4 @@
 ---
 name: "world"
 ---
-{>"partial/hi"/} {name}
+hello {name}
