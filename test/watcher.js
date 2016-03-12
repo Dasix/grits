@@ -26,6 +26,11 @@ describe("Watcher", function() {
 					//verbose: true,
 					verbose: false,
 					watch: true,
+					serve: {
+						enabled: true,
+						port: 3552,
+						verbose: true
+					},
 					paths: {
 						static: util.path.join( paths.sourceRoot, "static" ),
 						sassi: util.path.join( paths.sourceRoot, "scss-inc" )
@@ -49,7 +54,7 @@ describe("Watcher", function() {
 	});
 
 	after( function( cb ) {
-		rndr.watchManager.unwatch();
+		rndr.shutdown();
 		setTimeout( function() {
 			cb();
 		}, 200);
@@ -490,6 +495,93 @@ describe("Watcher", function() {
 
 			);
 
+
+		});
+
+	});
+
+	describe.skip("LiveReloadX Server:", function() {
+
+
+
+		// The functionality of the LiveReloadX server is hard (but not impossible)
+		// to test, so I will implement this later.  For now, though, the test(s) below
+		// are useful for manual testing.
+
+		// Another note:  I could probably add live reload tests to
+		// every one of the tests above instead of (or in addition to) having
+		// it as its own section here..
+
+
+
+
+		it("should reload after operations", function( cb ) {
+
+			var keepAliveMs = 15000;
+			var firstDelay = keepAliveMs / 2;
+			var secondDelay = keepAliveMs / 2;
+
+			this.timeout( keepAliveMs + 5000 );
+
+			// Locals
+			var fn = "reload-test.html";
+
+			console.log(" ");
+			console.log(" ");
+			console.log("-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-");
+			console.log(" ");
+			console.log("             Try the web server now ...");
+			console.log(" ");
+			console.log("-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-");
+			console.log(" ");
+
+			// Check initial value
+			util.checkHtmlOutput( fixtureName, fn, "<p><b>Test One</b></p>" );
+
+			// Initial Delay
+			p.resolve( true ).delay( firstDelay ).then(
+
+				function() {
+
+
+					return wAddState("live-reload-one").delay( 250 ).then(
+
+						function() {
+
+							// Check new value
+							util.checkHtmlOutput( fixtureName, fn, "<p><b>Test Two</b></p>" );
+
+							console.log(" ");
+							console.log(" ");
+							console.log("-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-");
+							console.log(" ");
+							console.log("                 File Updated ...");
+							console.log(" ");
+							console.log("-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-");
+							console.log(" ");
+
+
+						}
+
+					);
+
+
+				}
+
+			).delay( secondDelay ).then(
+
+				function() {
+
+					console.log("                  Shutting down ...");
+					console.log(" ");
+					console.log("-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-");
+					console.log(" ");
+					console.log(" ");
+
+					cb();
+				}
+
+			);
 
 		});
 

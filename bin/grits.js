@@ -28,6 +28,9 @@ program
 	.option("-x, --clean", 					"Instructs the renderer to clean the output path before rendering")
 	.option("-n, --noroot", 				"Disable the 'root path' logic and automatic directories")
 	.option("-w, --preview", 				"Outputs the grits configuration settings and skips rendering")
+	.option("-W, --watch", 					"Enables the watcher; output will refresh after source updates")
+	.option("-S, --serve", 					"Enables the LiveReloadX server")
+	.option("-P, --port", 					"Sets the port for the LiveReloadX server")
 	.option("-v, --verbose", 				"Enables verbose output")
 	.option("-l, --log-filter <str>",		"Limits the output log to only *topics* containing 'str'. (Allows Multiple)", collect)
 	.parse(process.argv);
@@ -40,7 +43,7 @@ program
 
 
 // Initialize a grits config object
-var gritsConfig = { paths: {} };
+var gritsConfig = { paths: {}, serve: { enabled: false } };
 
 
 
@@ -63,6 +66,24 @@ gritsConfig.paths.root = rootDirs;
 // Process the 'noroot' setting
 if( program.noroot !== undefined ) {
 	delete gritsConfig.paths.root;
+}
+
+
+// Process the 'watch' setting
+if( program.watch !== undefined ) {
+	gritsConfig.watch = true;
+}
+
+
+// Process the 'serve' setting
+if( program.serve !== undefined ) {
+	gritsConfig.serve.enabled = true;
+}
+
+
+// Process the 'port' setting
+if( program.port !== undefined ) {
+	gritsConfig.serve.port = program.port;
 }
 
 
