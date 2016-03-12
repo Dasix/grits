@@ -30,7 +30,7 @@ program
 	.option("-w, --preview", 				"Outputs the grits configuration settings and skips rendering")
 	.option("-W, --watch", 					"Enables the watcher; output will refresh after source updates")
 	.option("-S, --serve", 					"Enables the LiveReloadX server")
-	.option("-P, --port", 					"Sets the port for the LiveReloadX server")
+	.option("-P, --port <port>", 			"Sets the port for the LiveReloadX server", function(val){ return parseInt(val, 10); })
 	.option("-v, --verbose", 				"Enables verbose output")
 	.option("-l, --log-filter <str>",		"Limits the output log to only *topics* containing 'str'. (Allows Multiple)", collect)
 	.parse(process.argv);
@@ -83,7 +83,10 @@ if( program.serve !== undefined ) {
 
 // Process the 'port' setting
 if( program.port !== undefined ) {
-	gritsConfig.serve.port = program.port;
+	var port = parseInt( program.port, 10 );
+	if( port > 0 && port < 65500 ) {
+		gritsConfig.serve.port = port;
+	}
 }
 
 
@@ -196,10 +199,15 @@ if( program.preview !== undefined ) {
 
 		function() {
 
-			console.log("");
-			console.log("Grits Render Complete!")
-			console.log("");
-			process.exit(0);
+			if( grits.reloadServer.$$online === false && grits.watchManager.$$watching === false ) {
+				console.log("");
+				console.log("Grits Render Complete!");
+				console.log("");
+			}
+
+			/** debugging methods for stray timers and i/o **/
+			//console.log( process._getActiveRequests() );
+			//console.log( process._getActiveHandles() );
 
 		}
 
