@@ -12,9 +12,9 @@ describe("Helpers", function() {
 		util.renderFixture( fixtureName, function() {
 			cb();
 		}, {
-			//verbose: true,
-			verbose: false,
-			logFilter: "helper"
+			verbose: true//,
+			//verbose: false,
+			//logFilter: "helper"
 		});
 	});
 
@@ -53,6 +53,26 @@ describe("Helpers", function() {
 			util.checkHtmlOutput( fixtureName, fn,
 				"<p>hello earth and mars</p>"
 			);
+
+		});
+
+	});
+
+	describe("Built-In {@markdown} Helper", function() {
+
+		it("should allow in-line markdown content in HTML sources", function() {
+
+			var fn = "markdown/markdown-in-html.html";
+			var expected = "<body><p><em>Hello World</em></p></body>";
+			util.checkOutputNoWS( fixtureName, fn, expected );
+
+		});
+
+		it("should allow in-line markdown content in HTML partials", function() {
+
+			var fn = "markdown/markdown-in-partial.html";
+			var expected = "<h3 id=\"a-heading\">A Heading</h3><p><em>Hello World</em></p>";
+			util.checkOutputNoWS( fixtureName, fn, expected );
 
 		});
 
