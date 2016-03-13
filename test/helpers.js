@@ -12,9 +12,9 @@ describe("Helpers", function() {
 		util.renderFixture( fixtureName, function() {
 			cb();
 		}, {
-			verbose: true//,
-			//verbose: false,
-			//logFilter: "helper"
+			//verbose: true,
+			verbose: false,
+			logFilter: "helper"
 		});
 	});
 
