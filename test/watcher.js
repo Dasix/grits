@@ -343,7 +343,11 @@ describe("Watcher", function() {
 			var context = rndr.dataManager.getContextData();
 			var data = context.data;
 
+			// Initial condition tests
 			expect( data.test.hello ).to.equal( "world" );
+			expect( data.test.list.length ).to.equal( 2 );
+			expect( data.test.list[0].letter ).to.equal( "a" );
+			expect( data.test.list[1].letter ).to.equal( "b" );
 
 			wAddState("data-one").delay(250).then(
 
@@ -352,7 +356,11 @@ describe("Watcher", function() {
 					var context = rndr.dataManager.getContextData();
 					var data = context.data;
 
+					// Final condition tests
 					expect( data.test.hello ).to.equal( "mars" );
+					expect( data.test.list.length ).to.equal( 2 );
+					expect( data.test.list[0].letter ).to.equal( "a" );
+					expect( data.test.list[1].letter ).to.equal( "c" );
 
 				}
 

@@ -1,3 +1,10 @@
 {
-	"hello": "world"
+	"hello": "world",
+	"list": [
+		{
+			"letter": "a"
+		},{
+			"letter": "b"
+		}
+	]
 }
