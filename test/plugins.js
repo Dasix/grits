@@ -391,6 +391,45 @@ describe("Plugins:", function() {
 
 	});
 
+	describe.only("Plugin Context Info:", function() {
+
+		it("should protect plugin paths from cleaning ops", function( cb ) {
+
+			// Resolve paths
+			var paths = util.getPaths( fixtureName );
+			var ppath = util.path.join( paths.fixtureRoot, "plugins/test-one.js" );
+
+			// Create a renderer
+			rndr = util.getFreshRenderer(
+				{
+					plugins: [
+						ppath
+					],
+					verbose: true //false
+				}
+			).render().then(
+
+				function() {
+					util.debugOutput( fixtureName, "test.html" );
+					cb();
+				}
+
+			);
+
+			// We should start with 17 paths...
+			//expect( rndr.countFilterPaths() ).to.equal( 18 );
+
+			// Clear the non-plugin paths
+			//rndr.clearAllPaths();
+
+			// Now we should have 12 paths...
+			//expect( rndr.countFilterPaths() ).to.equal( 12 );
+
+		});
+
+
+	});
+
 	describe.skip("CLI Usage:", function() {
 
 		it("should work properly", function( cb ) {

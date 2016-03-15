@@ -8,7 +8,7 @@ var _ = require("lodash");
  *
  * @constructor
  */
-var pl = module.exports = function( renderer ) {
+var pl = module.exports = function( renderer, config ) {
 
 	// Locals
 	var me = this;
@@ -22,9 +22,25 @@ var pl = module.exports = function( renderer ) {
 	// Add constructor evidence
 	me.addEvidence( renderer, "constructor" );
 
+	// Store config
+	me.$$config = config;
+
 };
 
 var pr = pl.prototype;
+
+/**
+ * Returns the plugin configuration
+ * @returns {object}
+ */
+pr.getConfig = function() {
+
+	var me = this;
+	var conf = me.$$config;
+	conf.hello = "world";
+	return conf;
+
+};
 
 /**
  * Adds evidence of a call
