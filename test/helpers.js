@@ -13,8 +13,8 @@ describe("Helpers", function() {
 			cb();
 		}, {
 			//verbose: true
-			verbose: false,
-			logFilter: "helper"
+			verbose: false
+			,logFilter: "markdown"
 		});
 	});
 
@@ -88,6 +88,18 @@ describe("Helpers", function() {
 
 			util.checkOutputNoWS( fixtureName, fn, expected );
 			//util.debugOutput( fixtureName, fn );
+
+		});
+
+	});
+
+	describe("{@yuml} example", function() {
+
+		it("should render as expected", function() {
+
+			var fn = "yuml-helper-test.html";
+			var expected = "<img src=\"(start)->|a|,|a|->(Make Coffee)->|b|,|a|->(Make Breakfast)->|b|,|b|-><c>[want more coffee]->(Make Coffee),<c>[satisfied]->(end)\">";
+			util.checkOutputNoWS( fixtureName, fn, expected );
 
 		});
 
