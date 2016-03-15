@@ -87,6 +87,7 @@ describe("Helpers", function() {
 				"<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/ZMrWF9d5Vbw\" frameborder=\"0\" allowfullscreen></iframe>";
 
 			util.checkOutputNoWS( fixtureName, fn, expected );
+			//util.debugOutput( fixtureName, fn );
 
 		});
 

@@ -21,9 +21,6 @@ module.exports = function relatedPages( chunk, context, bodies, params ) {
 	var html = "<iframe width=\"" + params.width + "\" height=\"" + params.height + "\" src=\"https://www.youtube.com/embed/" + params.id + "\" frameborder=\"0\" allowfullscreen></iframe>";
 
 	// Return the chunk to prevent HTML sanitization
-	return chunk.tap(function(data) {
-		return html;
-	});
-
+	return chunk.write(html);
 
 };
