@@ -12,7 +12,7 @@ describe("Helpers", function() {
 		util.renderFixture( fixtureName, function() {
 			cb();
 		}, {
-			//verbose: true,
+			//verbose: true
 			verbose: false,
 			logFilter: "helper"
 		});
@@ -72,6 +72,20 @@ describe("Helpers", function() {
 
 			var fn = "markdown/markdown-in-partial.html";
 			var expected = "<h3 id=\"a-heading\">A Heading</h3><p><em>Hello World</em></p>";
+			util.checkOutputNoWS( fixtureName, fn, expected );
+
+		});
+
+	});
+
+	describe("{@youtube} example", function() {
+
+		it("should render as expected", function() {
+
+			var fn = "youtube-helper-test.html";
+			var expected = "<h1 id=\"heading\">Heading</h1>" + "\n" +
+				"<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/ZMrWF9d5Vbw\" frameborder=\"0\" allowfullscreen></iframe>";
+
 			util.checkOutputNoWS( fixtureName, fn, expected );
 
 		});
