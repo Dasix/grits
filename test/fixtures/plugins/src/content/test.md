@@ -1,5 +1,1 @@
-# Testing
-
-This is a simple test.
-
-{@contextDump /}
+Hello {plugins.test-one.hello} from {grits.pkg.name}
