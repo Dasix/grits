@@ -1,6 +1,6 @@
 {
   "name": "grits",
-  "version": "0.7.7",
+  "version": "0.7.8",
   "description": "An opinionated Dust.js Renderer with Markdown and Front-Matter features added.",
   "license": "MIT",
   "repository": {
@@ -65,7 +65,6 @@
     "eyes": "0.1.8",
     "fs-extra": "0.26.5",
     "gray-matter": "2.0.2",
-    "grunt-gh-pages": "1.0.0",
     "highlight.js": "^9.2.0",
     "livereloadx": "^0.3.9",
     "lodash": "4.0.0",
