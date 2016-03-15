@@ -37,7 +37,8 @@ describe("Plugins:", function() {
 			expect( rndr.__evidence["test-one"]["onAttach"]    ).to.equal( true );
 
 			// Expect `iplug` to be our plugin
-			expect( iplug ).to.be.an( "object" );
+			expect( iplug ).to.be.an( "array" );
+			expect( iplug[0] ).to.be.an( "object" );
 
 		});
 
@@ -60,7 +61,8 @@ describe("Plugins:", function() {
 			expect( rndr.__evidence["test-one"]["onAttach"]    ).to.equal( true );
 
 			// Expect `iplug` to be our plugin
-			expect( iplug ).to.be.an( "object" );
+			expect( iplug ).to.be.an( "array" );
+			expect( iplug[0] ).to.be.an( "object" );
 
 		});
 
@@ -98,6 +100,49 @@ describe("Plugins:", function() {
 
 		});
 
+		it("should properly apply configuration overrides", function() {
+
+			// Resolve paths
+			var paths = util.getPaths( fixtureName );
+			var froot = paths.fixtureRoot;
+			var ppatha = util.path.join( froot, "plugins/test-one.js" );
+
+			// Create a renderer
+			rndr = util.getFreshRenderer({
+				settings: {
+					d: "global-config"
+				}
+			});
+
+			// Add the plugins
+			var iplug = rndr.use(
+				{
+					plugin: ppatha,
+					a: "base-config",
+					b: "base-config"
+				},{
+					a: "override-config"
+				},{
+					a: "global-config",
+					b: "global-config",
+					c: "global-config"
+				}
+			);
+
+			// Check to see if the plugin loaded;
+			// (the test plugins modify the renderer a bit to show evidence of their existence).
+			expect( rndr.__evidence["test-one"]["constructor"] ).to.equal( true );
+			expect( rndr.__evidence["test-one"]["onAttach"]    ).to.equal( true );
+
+			// Validate the config
+			var finalConfig = rndr.pluginManager.getPluginConfig( "test-one" );
+			expect( finalConfig.a ).to.equal( "override-config" );
+			expect( finalConfig.b ).to.equal( "base-config" );
+			expect( finalConfig.c ).to.equal( "global-config" );
+			expect( finalConfig.d ).to.equal( "global-config" );
+
+		});
+
 	});
 
 	describe("Constructor Initialization:", function() {
@@ -126,6 +171,65 @@ describe("Plugins:", function() {
 			expect( rndr.__evidence["test-one"]["onAttach"]    ).to.equal( true );
 			expect( rndr.__evidence["test-two"]["constructor"] ).to.equal( true );
 			expect( rndr.__evidence["test-two"]["onAttach"]    ).to.equal( true );
+
+		});
+
+		it("should accept 'plugins' as an object", function() {
+
+			// Resolve paths
+			var paths = util.getPaths( fixtureName );
+			var froot = paths.fixtureRoot;
+			var ppatha = util.path.join( froot, "plugins/test-one.js" );
+
+			// Init config
+			var cfg = {
+				plugins: {}
+			};
+
+			// Add plugin as object
+			cfg.plugins[ ppatha ] = {};
+
+			// Create a renderer
+			rndr = util.getFreshRenderer(cfg);
+
+			// Check to see if the plugin loaded;
+			// (the test plugins modify the renderer a bit to show evidence of their existence).
+			expect( rndr.__evidence["test-one"]["constructor"] ).to.equal( true );
+			expect( rndr.__evidence["test-one"]["onAttach"]    ).to.equal( true );
+
+		});
+
+		it("should accept plugin configuration info", function() {
+
+			// Resolve paths
+			var paths = util.getPaths( fixtureName );
+			var froot = paths.fixtureRoot;
+			var ppatha = util.path.join( froot, "plugins/test-one.js" );
+
+			// Create a renderer
+			rndr = util.getFreshRenderer(
+				{
+					plugins: [
+						{
+							plugin: ppatha,
+							a: 1,
+							b: 2,
+							c: 3
+						}
+					]
+				}
+			);
+
+			// Check to see if the plugin loaded;
+			// (the test plugins modify the renderer a bit to show evidence of their existence).
+			expect( rndr.__evidence["test-one"]["constructor"] ).to.equal( true );
+			expect( rndr.__evidence["test-one"]["onAttach"]    ).to.equal( true );
+
+			// Validate the config
+			var finalConfig = rndr.pluginManager.getPluginConfig( "test-one" );
+			expect( finalConfig.a ).to.equal( 1 );
+			expect( finalConfig.b ).to.equal( 2 );
+			expect( finalConfig.c ).to.equal( 3 );
 
 		});
 
