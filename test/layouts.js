@@ -14,7 +14,8 @@ describe("Layouts", function() {
 		}, {
 			//verbose: true,
 			verbose: false,
-			logFilter: "markdown"
+			//logFilter: "markdown",
+			defaultLayout: "another-test"
 		});
 	});
 
@@ -45,6 +46,7 @@ describe("Layouts", function() {
 		});
 
 	});
+
 	describe("For Markdown Content Files", function() {
 
 		it("should work as expected for layouts with default content", function() {
@@ -86,10 +88,41 @@ describe("Layouts", function() {
 	});
 
 
-	it("should show a proper error when a layout is not found", function() {
+	describe("Config.defaultLayout", function() {
+
+		it("should apply a layout when none is specified", function() {
+
+			var fn = "default-layout-test.html";
+			util.checkHtmlOutput( fixtureName, fn,
+				"<body>\n" +
+				"    <div class=\"basic-layout\">\n" +
+				"<h1 id=\"a-heading\">A Heading</h1>\n" +
+				"<p>Hello world..</p>\n" +
+				"</div>\n" +
+				"</body>"
+			);
+
+		});
+
+		it("should allow explicit NULL overrides to the default layout", function() {
+
+			var fn = "explicit-no-layout-test.html";
+			util.checkHtmlOutput( fixtureName, fn,
+				"<h1 id=\"a-heading\">A Heading</h1>\n" +
+				"<p>Hello world..</p>\n"
+			);
 
 
+			/*
+			 var fn = "markdown-with-def.html";
+			 util.checkHtmlOutput(
+			 fixtureName, fn, "<body>\n" + "\t<div class=\"basic-layout\">" + "<p><strong>hello</strong> <em>world</em></p>\n" + "</div>\n" + "</body>\n\n"
+			 );
+			 */
+
+		});
 
 	});
+
 
 });

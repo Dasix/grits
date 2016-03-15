@@ -18,6 +18,7 @@ program
 	.option("    --filters <path>", 		"Path to Dust.js filters. (Allows Multiple)", collect)
 	.option("    --partials <path>", 		"Path to Dust.js partials. (Allows Multiple)", collect)
 	.option("    --layouts <path>", 		"Path to Dust.js layouts. (Allows Multiple)", collect)
+	.option("    --default-layout <name>", 	"Sets the default layout for all content files" )
 	.option("    --content <path>", 		"Path to site content. (Allows Multiple)", collect)
 	.option("    --static <path>", 			"Path to static content. (Allows Multiple)", collect)
 	.option("    --data <path>", 			"Path to data files. (Allows Multiple)", collect)
@@ -78,6 +79,10 @@ if( program.watch !== undefined ) {
 // Process the 'serve' setting
 if( program.serve !== undefined ) {
 	gritsConfig.serve.enabled = true;
+
+	// 'serve' implies 'watch'
+	gritsConfig.watch = true;
+
 }
 
 
@@ -87,6 +92,14 @@ if( program.port !== undefined ) {
 	if( port > 0 && port < 65500 ) {
 		gritsConfig.serve.port = port;
 	}
+
+	// 'port' implies 'serve'
+	gritsConfig.serve.enabled = true;
+
+	// 'serve' implies 'watch'
+	gritsConfig.watch = true;
+
+
 }
 
 
@@ -99,6 +112,12 @@ if( program.verbose !== undefined ) {
 // Process the 'log-filter' setting
 if( program.logFilter !== undefined ) {
 	gritsConfig.logFilter = program.logFilter;
+}
+
+
+// Process the 'default-layout' setting
+if( program.defaultLayout !== undefined ) {
+	gritsConfig.defaultLayout = program.defaultLayout;
 }
 
 
