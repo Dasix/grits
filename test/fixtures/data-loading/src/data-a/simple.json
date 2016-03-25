@@ -3,5 +3,6 @@
 	"dVar": "mars",
 	"dataArray": [
 		"car", "suv", "truck"
-	]
+	],
+	"json": true
 }

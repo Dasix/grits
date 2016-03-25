@@ -66,6 +66,7 @@
     "fs-extra": "0.26.5",
     "gray-matter": "2.0.2",
     "highlight.js": "^9.2.0",
+    "js-yaml": "^3.5.5",
     "livereloadx": "^0.3.9",
     "lodash": "4.0.0",
     "marked": "^0.3.5",
@@ -74,6 +75,7 @@
     "qooxdoo": "5.0.1",
     "sugar-glob": "1.2.2",
     "tipe": "0.1.12",
+    "toml": "^2.3.0",
     "verror": "1.6.0"
   }
 }

@@ -417,43 +417,86 @@ describe("Plugins:", function() {
 
 	});
 
-	describe.skip("CLI Usage:", function() {
+	describe("Data File Handling:", function() {
 
-		it("should work properly", function( cb ) {
+		it( "should work as expected", function( cb ) {
 
-			var args = [
-				"-w",
-				"--plugin plugins/test-one.js",
-				"--plugin ./plugins/test-two.js",
-				//"-v",
-				"--log-filter plugin"
-			];
-			//var args = ["--log-filter" ,"plugin", "-w" ];
+			// Resolve paths
+			var paths = util.getPaths( fixtureName );
+			var froot = paths.fixtureRoot;
+			var ppath = util.path.join( froot, "plugins/data-tester.js" );
 
+			// Create a renderer
+			rndr = util.getFreshRenderer(
+				{
+					verbose: true,
+					paths: {
+						"data": paths.sourceRoot + "/data"
+					}
+				}
+			);
+			var dm = rndr.dataManager;
 
-			util.cli( fixtureName, args, function( err, stdout, stderr ) {
+			// Load the plugin manually so that we can
+			// pass it in as a function..
+			var plugin = require( ppath );
 
-				/*
-				console.log(" ");
-				console.log("------- RAW OUTPUT -------------------------------------------");
-				console.log(" ");
-				console.log( stdout );
-				console.log(" ");
-				*/
+			// Pass the plugin to the renderer
+			var iplug = rndr.addPlugin( plugin );
 
-				/*
-				console.log("------- ARRAY OUTPUT -------------------------------------------");
-				console.log(" ");
-				console.log( arrLogs );
-				console.log(" ");
-				*/
+			dm.loadAll().then(
 
-				cb( err );
+				function() {
 
-			});
+					var cd = dm.getContextData();
+					expect( cd.storagePlace.example.one ).to.equal( "Hello World\n" );
+					cb();
+
+				}
+
+			);
 
 		});
 
 	});
+
+	describe.skip("CLI Usage:", function() {
+
+	it("should work properly", function( cb ) {
+
+		var args = [
+			"-w",
+			"--plugin plugins/test-one.js",
+			"--plugin ./plugins/test-two.js",
+			//"-v",
+			"--log-filter plugin"
+		];
+		//var args = ["--log-filter" ,"plugin", "-w" ];
+
+
+		util.cli( fixtureName, args, function( err, stdout, stderr ) {
+
+			/*
+			console.log(" ");
+			console.log("------- RAW OUTPUT -------------------------------------------");
+			console.log(" ");
+			console.log( stdout );
+			console.log(" ");
+			*/
+
+			/*
+			console.log("------- ARRAY OUTPUT -------------------------------------------");
+			console.log(" ");
+			console.log( arrLogs );
+			console.log(" ");
+			*/
+
+			cb( err );
+
+		});
+
+	});
+
+});
 
 });

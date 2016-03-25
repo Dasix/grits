@@ -76,7 +76,7 @@ describe("Basic Markdown Rendering", function() {
 
 	});
 
-	describe.only("Special Notes", function() {
+	describe("Special Notes", function() {
 
 		it("should work for single words", function() {
 

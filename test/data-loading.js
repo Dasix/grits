@@ -274,7 +274,42 @@ describe("Data Loading", function() {
 
 		});
 
+	});
 
+	describe("File Types", function() {
+
+		describe("JSON", function() {
+
+			it("should load correctly", function() {
+
+				var cd = rndr.dataManager.getContextData();
+				expect( cd.data.simple.json ).to.equal( true );
+
+			});
+
+		});
+		describe("TOML", function() {
+
+			it("should load correctly", function() {
+
+				var cd = rndr.dataManager.getContextData();
+				expect( cd.data.simple.toml ).to.equal( true );
+				expect( cd.data.simple.ini ).to.equal( true );
+
+			});
+
+		});
+		describe("YAML", function() {
+
+			it("should load correctly", function() {
+
+				var cd = rndr.dataManager.getContextData();
+				expect( cd.data.simple.yaml ).to.equal( true );
+				expect( cd.data.simple.yml ).to.equal( true );
+
+			});
+
+		});
 
 	});
 
