@@ -11,7 +11,7 @@ describe("Markdown and Dust.js Compatibility", function() {
 	before( function( cb ) {
 		//var verboseRender = false;
 		var verboseRender = {
-			verbose: true,
+			verbose: false,
 			logFilter: "mark"
 		};
 		util.renderFixture( fixtureName, function() {

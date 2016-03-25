@@ -11,6 +11,9 @@ describe("Basic Markdown Rendering", function() {
 	before( function( cb ) {
 		util.renderFixture( fixtureName, function() {
 			cb();
+		}, {
+			verbose: false, //true,
+			logFilter: "mark"
 		});
 	});
 
@@ -68,6 +71,34 @@ describe("Basic Markdown Rendering", function() {
 				"h6.html",
 				"<h6 id='a-heading'>A Heading</h6>"
 			);
+
+		});
+
+	});
+
+	describe.only("Special Notes", function() {
+
+		it("should work for single words", function() {
+
+			var fn = "notes/warning.html";
+			util.checkHtmlOutput( fixtureName, fn , "<p class='grits-note note-warning'><span>Warning: </span>Mumble Mumble</p>");
+			//util.debugOutput( fixtureName, fn );
+
+		});
+
+		it("should work for multiple words", function() {
+
+			var fn = "notes/important-note.html";
+			util.checkHtmlOutput( fixtureName, fn , "<p class='grits-note note-important note-note'><span>Important Note: </span>Mumble mumble..</p>");
+			//util.debugOutput( fixtureName, fn );
+
+		});
+
+		it("should have an upper limit of 9 words", function() {
+
+			var fn = "notes/too-long.html";
+			util.checkHtmlOutput( fixtureName, fn , "<p>Something unnecessarily long with several words that do not matter: Lorem Ipsum</p>");
+			//util.debugOutput( fixtureName, fn );
 
 		});
 
