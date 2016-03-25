@@ -58,4 +58,34 @@ describe("partials", function() {
 
 	});
 
+	describe.only("In-line Partials", function() {
+
+		it("should render properly", function() {
+
+			var fn = "inline-partial-basic.html";
+
+			util.checkHtmlOutput( fixtureName, fn,
+				"<p>two</p>"
+			);
+
+			util.fileShouldExist( fixtureName, "inline-partials/two.html" );
+
+		});
+
+		it("should not be rendered to file when prefixed with an underscore", function() {
+
+			var fn = "inline-partial-skip.html";
+
+			util.checkHtmlOutput( fixtureName, fn,
+				"<p>one</p>"
+			);
+
+			util.fileShouldNotExist( fixtureName, "inline-partials/one.html" );
+			util.fileShouldNotExist( fixtureName, "inline-partials/_one.html" );
+
+
+		});
+
+	});
+
 });
