@@ -9,7 +9,11 @@ var fixtureName = "markdown-dustjs-compat";
 describe("Markdown and Dust.js Compatibility", function() {
 
 	before( function( cb ) {
-		var verboseRender = false;
+		//var verboseRender = false;
+		var verboseRender = {
+			verbose: true,
+			logFilter: "mark"
+		};
 		util.renderFixture( fixtureName, function() {
 			cb();
 		}, verboseRender);
@@ -553,84 +557,5 @@ describe("Markdown and Dust.js Compatibility", function() {
 		});
 
 	});
-
-	/*
-	describe("Dust.js Variable Inclusion", function() {
-
-		it("should allow simple variable parsing (var-simple.html)", function() {
-
-			 util.checkHtmlOutput(
-				 fixtureName,
-				 "var-simple.html",
-				 "<p>Hello Luke</p>"
-			 );
-
-		});
-
-		it("should allow filters (var-with-filter.html)", function() {
-
-			util.checkHtmlOutput(
-				fixtureName,
-				"var-with-filter.html",
-				"<p>Hello LUKE</p>"
-			);
-
-		});
-
-	});
-
-
-	describe("Dust.js Partial Inclusion", function() {
-
-		it("should allow simple variable parsing (var-simple.html)", function() {
-
-			util.checkHtmlOutput(
-				fixtureName,
-				"var-simple.html",
-				"<p>Hello Luke</p>"
-			);
-
-		});
-
-		it("should allow filters (var-with-filter.html)", function() {
-
-			util.checkHtmlOutput(
-				fixtureName,
-				"var-with-filter.html",
-				"<p>Hello LUKE</p>"
-			);
-
-		});
-
-	});
-
-	describe("The {@notmd} tag", function() {
-
-		it("should facilitate partial inclusion", function() {
-
-			util.checkHtmlOutput(
-				fixtureName,
-				"notmd-partial.html",
-				"<p>Hello <span>Luke</span></p>"
-			);
-
-		});
-
-	});
-
-	/*
-	describe.skip("X", function() {
-
-		it("X", function() {
-
-			var fn = "simple-partial";
-			var content = util.getOutput( fixtureName, fn + ".html" );
-			//util.dbg("Final Output", content );
-
-
-		});
-
-	});
-	*/
 
 });

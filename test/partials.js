@@ -58,7 +58,7 @@ describe("partials", function() {
 
 	});
 
-	describe.only("In-line Partials", function() {
+	describe("In-line Partials", function() {
 
 		it("should render properly", function() {
 
