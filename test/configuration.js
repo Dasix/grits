@@ -333,4 +333,102 @@ describe("Configuration", function() {
 
 	});
 
+	describe("Sub-Component Config:", function() {
+
+		describe("Via Configuration File:", function() {
+
+			describe("Dust.js:", function() {
+
+				it.only("should allow 'whitespace' configuration by file or front-matter", function( cb ) {
+
+					// Some settings for resolving the config location
+					var subComponentDir = "dust";
+					var configFilename = "dust-test.json";
+
+					// Resolve config location
+					var configPath = util.path.join(
+						util.getPaths( fixtureName ).fixtureRoot,
+						"sub-component-tests",
+						subComponentDir,
+						configFilename
+					);
+
+					// Configure Grits
+					rndr.setConfig(configPath);
+
+					// Render
+					rndr.render().then(
+
+						function() {
+
+							var testFileA = "../sub-component-tests/" + subComponentDir + "/output/config-file-test.html";
+							var testFileB = "../sub-component-tests/" + subComponentDir + "/output/matter-data-test.html";
+							var contentA = util.getOutput( fixtureName, testFileA );
+							var contentB = util.getOutput( fixtureName, testFileB );
+
+							expect( contentA.indexOf("\n") ).to.not.equal( -1 );
+							expect( contentB.indexOf("\n") ).to.equal( -1 );
+
+							cb();
+
+						}
+
+					);
+
+				});
+
+			});
+
+			describe("Node-Sass:", function() {
+
+				it("should something", function() {
+
+				});
+
+			});
+
+			describe("Marked:", function() {
+
+				it("should something", function() {
+
+				});
+
+			});
+
+			describe("Highlight.js:", function() {
+
+				it("should something", function() {
+
+				});
+
+			});
+
+			describe("Gray-Matter:", function() {
+
+				it("should something", function() {
+
+				});
+
+			});
+
+			describe("Chokidar:", function() {
+
+				it("should something", function() {
+
+				});
+
+			});
+
+			describe("LiveReloadX:", function() {
+
+				it("should something", function() {
+
+				});
+
+			});
+
+		});
+
+	});
+
 });

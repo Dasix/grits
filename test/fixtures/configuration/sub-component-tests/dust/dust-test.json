@@ -1,0 +1,11 @@
+{
+	"paths" : {
+		"content"   : "./content",
+		"output" 	: "./output"
+	},
+	"components": {
+		"dust": {
+			"whitespace": true
+		}
+	}
+}
