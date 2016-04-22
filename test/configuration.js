@@ -339,7 +339,7 @@ describe("Configuration", function() {
 
 			describe("Dust.js:", function() {
 
-				it.only("should allow 'whitespace' configuration by file or front-matter", function( cb ) {
+				it("should allow 'whitespace' configuration by file or front-matter", function( cb ) {
 
 					// Some settings for resolving the config location
 					var subComponentDir = "dust";
@@ -366,7 +366,12 @@ describe("Configuration", function() {
 							var contentA = util.getOutput( fixtureName, testFileA );
 							var contentB = util.getOutput( fixtureName, testFileB );
 
+							// The dust-test.json file forces "whitespace: true", so
+							// config-file-test.html SHOULD contain line breaks.
 							expect( contentA.indexOf("\n") ).to.not.equal( -1 );
+
+							// The front-matter from the source file forces "whitespace: false",
+							// so matter-data-test.html SHOULD NOT contain line breaks.
 							expect( contentB.indexOf("\n") ).to.equal( -1 );
 
 							cb();
@@ -389,7 +394,49 @@ describe("Configuration", function() {
 
 			describe("Marked:", function() {
 
-				it("should something", function() {
+				it("should allow 'breaks' configuration by file or front-matter", function( cb ) {
+
+					// Some settings for resolving the config location
+					var subComponentDir = "marked";
+					var configFilename = "marked-test.json";
+
+					// Resolve config location
+					var configPath = util.path.join(
+						util.getPaths( fixtureName ).fixtureRoot,
+						"sub-component-tests",
+						subComponentDir,
+						configFilename
+					);
+
+					// Configure Grits
+					rndr.setConfig(configPath);
+
+					// Render
+					rndr.render().then(
+
+						function() {
+
+							var testFileA = "../sub-component-tests/" + subComponentDir + "/output/config-file-test.html";
+							var testFileB = "../sub-component-tests/" + subComponentDir + "/output/matter-data-test.html";
+							var contentA = util.getOutput( fixtureName, testFileA );
+							var contentB = util.getOutput( fixtureName, testFileB );
+
+							//util.debugOutput( fixtureName, testFileA );
+							//util.debugOutput( fixtureName, testFileB );
+
+							// The marked-test.json file forces "breaks: true", so
+							// config-file-test.html SHOULD contain a <br>
+							expect( contentA.indexOf("<br>") ).to.not.equal( -1 );
+
+							// The front-matter from the source file forces "breaks: false",
+							// so config-file-test.html SHOULD NOT contain a <br>
+							expect( contentB.indexOf("<br>") ).to.equal( -1 );
+
+							cb();
+
+						}
+
+					);
 
 				});
 
@@ -397,7 +444,49 @@ describe("Configuration", function() {
 
 			describe("Highlight.js:", function() {
 
-				it("should something", function() {
+				it("should allow 'useBR' configuration by file or front-matter", function( cb ) {
+
+					// Some settings for resolving the config location
+					var subComponentDir = "hljs";
+					var configFilename = "hljs-test.json";
+
+					// Resolve config location
+					var configPath = util.path.join(
+						util.getPaths( fixtureName ).fixtureRoot,
+						"sub-component-tests",
+						subComponentDir,
+						configFilename
+					);
+
+					// Configure Grits
+					rndr.setConfig(configPath);
+
+					// Render
+					rndr.render().then(
+
+						function() {
+
+							var testFileA = "../sub-component-tests/" + subComponentDir + "/output/config-file-test.html";
+							var testFileB = "../sub-component-tests/" + subComponentDir + "/output/matter-data-test.html";
+							var contentA = util.getOutput( fixtureName, testFileA );
+							var contentB = util.getOutput( fixtureName, testFileB );
+
+							//util.debugOutput( fixtureName, testFileA );
+							//util.debugOutput( fixtureName, testFileB );
+
+							// The hljs-test.json file forces "useBR: true", so
+							// config-file-test.html SHOULD contain a <br>
+							expect( contentA.indexOf("<br>") ).to.not.equal( -1 );
+
+							// The front-matter from the source file forces "useBR: false",
+							// so config-file-test.html SHOULD NOT contain a <br>
+							expect( contentB.indexOf("<br>") ).to.equal( -1 );
+
+							cb();
+
+						}
+
+					);
 
 				});
 

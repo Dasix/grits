@@ -45,8 +45,9 @@ describe("partials", function() {
 		it("should layout as expected", function() {
 
 			var fn = "markdown-inc-markdown-b.html";
+
 			util.checkHtmlOutput( fixtureName, fn,
-				"<p>Hello<br><p>World</p>\n</p>"
+				"<p>Hello \n<p>World</p>\n</p>"
 			);
 
 			fn = "markdown-inc-markdown-c.html";
