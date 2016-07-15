@@ -1,3 +1,5 @@
+![Grits-Logo](grits-logo.png)
+
 [![NPM](https://nodei.co/npm/grits.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/grits/)
 
 [![Build Status](https://travis-ci.org/Dasix/grits.svg?branch=master)](https://travis-ci.org/Dasix/grits/)
