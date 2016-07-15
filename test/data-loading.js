@@ -35,6 +35,22 @@ describe("Data Loading", function() {
 
 	});
 
+	describe("Directory Traversal", function() {
+
+		it("should allow directories to start with a number", function() {
+
+			var cd = rndr.dataManager.getContextData();
+			var page = cd.page;
+
+			expect( page["1x"]["number-first-test-1"]["nft"] ).to.equal( 1 );
+			expect( page["2x"]["number-first-test-2"]["nft"] ).to.equal( 2 );
+			expect( page["2x"]["3x"]["number-first-test-3"]["nft"] ).to.equal( 3 );
+			expect( page["2x"]["four"]["number-first-test-4"]["nft"] ).to.equal( 4 );
+
+		});
+
+	});
+
 	describe("Front-Matter", function() {
 
 		it("should exist for content pages that do not have any front-matter", function() {
