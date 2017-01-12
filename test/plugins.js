@@ -429,7 +429,6 @@ describe("Plugins:", function() {
 			// Create a renderer
 			rndr = util.getFreshRenderer(
 				{
-					verbose: true,
 					paths: {
 						"data": paths.sourceRoot + "/data"
 					}

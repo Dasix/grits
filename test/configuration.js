@@ -5,6 +5,19 @@ var expect  = util.expect;
 // Settings
 var fixtureName = "configuration";
 
+/*
+var x = console.log;8
+console.log = function( msg ) {
+
+	x( "--- ");
+	//x( msg );
+	//console.trace("Here I am!")
+
+};
+*/
+
+
+
 // Tests
 describe("Configuration", function() {
 
@@ -14,7 +27,9 @@ describe("Configuration", function() {
 	beforeEach( function() {
 
 		// Init Renderer
-		rndr = util.getFreshRenderer();
+		rndr = util.getFreshRenderer({
+			//logLevel: "debug"
+		});
 
 	});
 
@@ -384,9 +399,9 @@ describe("Configuration", function() {
 
 			});
 
-			describe("Node-Sass:", function() {
+			describe.skip("Node-Sass:", function() {
 
-				it("should something", function() {
+				it(".. todo ..", function() {
 
 				});
 
@@ -492,25 +507,25 @@ describe("Configuration", function() {
 
 			});
 
-			describe("Gray-Matter:", function() {
+			describe.skip("Gray-Matter:", function() {
 
-				it("should something", function() {
-
-				});
-
-			});
-
-			describe("Chokidar:", function() {
-
-				it("should something", function() {
+				it(".. todo ..", function() {
 
 				});
 
 			});
 
-			describe("LiveReloadX:", function() {
+			describe.skip("Chokidar:", function() {
 
-				it("should something", function() {
+				it(".. todo ..", function() {
+
+				});
+
+			});
+
+			describe.skip("LiveReloadX:", function() {
+
+				it(".. todo ..", function() {
 
 				});
 
