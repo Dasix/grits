@@ -32,7 +32,10 @@ program
 	.option("-W, --watch", 					"Enables the watcher; output will refresh after source updates")
 	.option("-S, --serve", 					"Enables the LiveReloadX server")
 	.option("-P, --port <port>", 			"Sets the port for the LiveReloadX server", function(val){ return parseInt(val, 10); })
-	.option("-v, --verbose", 				"Enables verbose output")
+	.option("-q, --quiet", 					"Disables ALL log output, alias for '-L none'")
+	.option("-v, --verbose", 				"Enables verbose output, alias for '-L debug'")
+	.option("-L, --log-level <level>", 		"Sets the minimum log level (trace, debug, info, warn, error, fatal)")
+	.option("-f, --log-format <format>", 	"Sets the log format (console, json)")
 	.option("-l, --log-filter <str>",		"Limits the output log to only *topics* containing 'str'. (Allows Multiple)", collect)
 	.parse(process.argv);
 
@@ -103,16 +106,40 @@ if( program.port !== undefined ) {
 }
 
 
-// Process the 'verbose' setting
-if( program.verbose !== undefined ) {
-	gritsConfig.verbose = true;
+
+// Log Level
+// If logLevel is provided explicitly then we will accept the value
+// verbatim.  If it is not provided then we will allow for aliases..
+if( program.logLevel !== undefined ) {
+	gritsConfig.logLevel = program.logLevel;
+} else {
+
+	// Process the 'verbose' alias
+	if( program.verbose !== undefined ) {
+		gritsConfig.logLevel = "debug";
+	}
+
+	// Process the 'quiet' alias
+	if( program.quiet !== undefined ) {
+		gritsConfig.logLevel = "none";
+	}
+
 }
 
+
+
+// Process the 'log-format' setting
+if( program.logFormat !== undefined ) {
+	gritsConfig.logFormat = program.logFormat;
+}
 
 // Process the 'log-filter' setting
 if( program.logFilter !== undefined ) {
 	gritsConfig.logFilter = program.logFilter;
 }
+
+
+
 
 
 // Process the 'default-layout' setting
