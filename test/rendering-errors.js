@@ -13,7 +13,8 @@ describe("Errors:", function() {
 		util.renderFixture( fixtureName, function() {
 			cb();
 		},{
-			verbose: false,
+			attemptRecovery: true,
+			//logLevel: "warning",
 			logFilter: null
 		});
 	});

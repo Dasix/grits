@@ -80,6 +80,11 @@ describe("Watcher", function() {
 
 	describe("Content Watching:", function() {
 
+		it("should enable error recovery mode", function() {
+			var ar = rndr.getConfig().attemptRecovery;
+			expect( ar ).to.equal( true );
+		});
+
 		it("should function properly when new content is added", function( cb ) {
 
 			wAddState("content-one").delay(250).then(
