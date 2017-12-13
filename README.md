@@ -17,100 +17,99 @@ in production (unless you really know what you're doing).
 
 #### Content Parsing Deps
 
-Module            | Links 
------------------ | ------------
-**DustJS**        | &nbsp; - [**Documentation**](http://www.dustjs.com/guides/getting-started/)
-                  | &nbsp; - [API Reference](http://www.dustjs.com/docs/api/)
-                  | &nbsp; - [Website](http://www.dustjs.com/)
-                  | &nbsp; - [GitHub Repository](https://github.com/linkedin/dustjs)
-                  | &nbsp; - [NPM Package Page](https://www.npmjs.com/package/dustjs-linkedin)
-                  | &nbsp;
-**Dust Helpers**  | &nbsp; - [**Documentation**](http://www.dustjs.com/guides/dust-helpers/)
-                  | &nbsp; - [Website](http://www.dustjs.com/)
-                  | &nbsp; - [GitHub Repository](https://github.com/linkedin/dustjs-helpers)
-                  | &nbsp; - [NPM Package Page](https://www.npmjs.com/package/dustjs-helpers)
-                  | &nbsp;
-**Gray-Matter**   | &nbsp; - [**Documentation**](https://github.com/jonschlinkert/gray-matter/blob/master/README.md#usage)
-                  | &nbsp; - [GitHub Repository](https://github.com/jonschlinkert/gray-matter)
-                  | &nbsp; - [NPM Package Page](https://www.npmjs.com/package/gray-matter)
-                  | &nbsp;
-**Marked**        | &nbsp; - [**Documentation**](https://github.com/chjj/marked/blob/master/README.md#usage)
-                  | &nbsp; - [GitHub Repository](https://github.com/chjj/marked)
-                  | &nbsp; - [NPM Package Page](https://www.npmjs.com/package/marked)
-                  | &nbsp;
+| Module          | Links 
+| --------------- | ------------
+| **DustJS**      | [**Documentation**](http://www.dustjs.com/guides/getting-started/)
+|                 | [API Reference](http://www.dustjs.com/docs/api/)
+|                 | [Website](http://www.dustjs.com/)
+|                 | [GitHub Repository](https://github.com/linkedin/dustjs)
+|                 | [NPM Package Page](https://www.npmjs.com/package/dustjs-linkedin)
+|                 |
+|**Dust Helpers** | [**Documentation**](http://www.dustjs.com/guides/dust-helpers/)
+|                 | [Website](http://www.dustjs.com/)
+|                 | [GitHub Repository](https://github.com/linkedin/dustjs-helpers)
+|                 | [NPM Package Page](https://www.npmjs.com/package/dustjs-helpers)
+|                 | 
+|**Gray-Matter**  | [**Documentation**](https://github.com/jonschlinkert/gray-matter/blob/master/README.md#usage)
+|                 | [GitHub Repository](https://github.com/jonschlinkert/gray-matter)
+|                 | [NPM Package Page](https://www.npmjs.com/package/gray-matter)
+|                 |
+|**Marked**       | [**Documentation**](https://github.com/chjj/marked/blob/master/README.md#usage)
+|                 | [GitHub Repository](https://github.com/chjj/marked)
+|                 | [NPM Package Page](https://www.npmjs.com/package/marked)
 
 
 #### Utility Deps
 
-Module            | Links 
------------------ | ------------
-**Bluebird**      | &nbsp; - [**API Reference**](http://bluebirdjs.com/docs/api-reference.html)
-                  | &nbsp; - [Website](http://bluebirdjs.com/)
-                  | &nbsp; - [GitHub Repository](https://github.com/petkaantonov/bluebird)
-                  | &nbsp; - [NPM Package Page](https://www.npmjs.com/package/bluebird)
-                  | &nbsp;
-**FS-Extra**      | &nbsp; - [**Documentation**](https://github.com/jprichardson/node-fs-extra/blob/master/README.md#usage)
-                  | &nbsp; - [GitHub Repository](https://github.com/jprichardson/node-fs-extra)
-                  | &nbsp; - [NPM Package Page](https://www.npmjs.com/package/fs-extra)
-                  | &nbsp;
-**Lodash**        | &nbsp; - [**Documentation**](http://devdocs.io/lodash/)
-                  | &nbsp; - [API Reference](https://lodash.com/docs)
-                  | &nbsp; - [Website](https://lodash.com/)
-                  | &nbsp; - [GitHub Repository](https://github.com/lodash/lodash)
-                  | &nbsp; - [NPM Package Page](https://www.npmjs.com/package/lodash)
-                  | &nbsp;
-**Mkdirp**        | &nbsp; - [**API Reference**](https://github.com/substack/node-mkdirp#methods)
-                  | &nbsp; - [GitHub Repository](https://github.com/substack/node-mkdirp)
-                  | &nbsp; - [NPM Package Page](https://www.npmjs.com/package/mkdirp)
-                  | &nbsp;
-**Qooxdoo**       | &nbsp; - [**Documentation**](http://manual.qooxdoo.org/current/pages/server/overview.html#included-features)
-                  | &nbsp; - [Website](http://qooxdoo.org/)
-                  | &nbsp; - [GitHub Repository](https://github.com/qooxdoo/qooxdoo)
-                  | &nbsp; - [NPM Package Page](https://www.npmjs.com/package/qooxdoo)
-                  | &nbsp;
-**Sugar-Glob**    | &nbsp; - [**Documentation**](https://github.com/will123195/sugar-glob#usage)
-                  | &nbsp; - [GitHub Repository](https://github.com/will123195/sugar-glob)
-                  | &nbsp; - [NPM Package Page](https://www.npmjs.com/package/sugar-glob)
-                  | &nbsp;
-**Tipe**          | &nbsp; - [**Documentation**](https://github.com/3meters/tipe#basic-use)
-                  | &nbsp; - [GitHub Repository](https://github.com/3meters/tipe)
-                  | &nbsp; - [NPM Package Page](https://www.npmjs.com/package/tipe)
-                  | &nbsp;
-**vError**        | &nbsp; - [**Documentation**](https://github.com/davepacheco/node-verror#verror-richer-javascript-errors)
-                  | &nbsp; - [GitHub Repository](https://github.com/davepacheco/node-verror)
-                  | &nbsp; - [NPM Package Page](https://www.npmjs.com/package/verror)
+Module             | Links 
+------------------ | ------------
+**Bluebird**       | [**API Reference**](http://bluebirdjs.com/docs/api-reference.html)
+|                  | [Website](http://bluebirdjs.com/)
+|                  | [GitHub Repository](https://github.com/petkaantonov/bluebird)
+|                  | [NPM Package Page](https://www.npmjs.com/package/bluebird)
+|                  | 
+|**FS-Extra**      | [**Documentation**](https://github.com/jprichardson/node-fs-extra/blob/master/README.md#usage)
+|                  | [GitHub Repository](https://github.com/jprichardson/node-fs-extra)
+|                  | [NPM Package Page](https://www.npmjs.com/package/fs-extra)
+|                  | 
+|**Lodash**        | [**Documentation**](http://devdocs.io/lodash/)
+|                  | [API Reference](https://lodash.com/docs)
+|                  | [Website](https://lodash.com/)
+|                  | [GitHub Repository](https://github.com/lodash/lodash)
+|                  | [NPM Package Page](https://www.npmjs.com/package/lodash)
+|                  | 
+|**Mkdirp**        | [**API Reference**](https://github.com/substack/node-mkdirp#methods)
+|                  | [GitHub Repository](https://github.com/substack/node-mkdirp)
+|                  | [NPM Package Page](https://www.npmjs.com/package/mkdirp)
+|                  | 
+|**Qooxdoo**       | [**Documentation**](http://manual.qooxdoo.org/current/pages/server/overview.html#included-features)
+|                  | [Website](http://qooxdoo.org/)
+|                  | [GitHub Repository](https://github.com/qooxdoo/qooxdoo)
+|                  | [NPM Package Page](https://www.npmjs.com/package/qooxdoo)
+|                  | 
+|**Sugar-Glob**    | [**Documentation**](https://github.com/will123195/sugar-glob#usage)
+|                  | [GitHub Repository](https://github.com/will123195/sugar-glob)
+|                  | [NPM Package Page](https://www.npmjs.com/package/sugar-glob)
+|                  |
+|**Tipe**          | [**Documentation**](https://github.com/3meters/tipe#basic-use)
+|                  | [GitHub Repository](https://github.com/3meters/tipe)
+|                  | [NPM Package Page](https://www.npmjs.com/package/tipe)
+|                  |
+|**vError**        | [**Documentation**](https://github.com/davepacheco/node-verror#verror-richer-javascript-errors)
+|                  | [GitHub Repository](https://github.com/davepacheco/node-verror)
+|                  | [NPM Package Page](https://www.npmjs.com/package/verror)
 
 #### Documentation Deps
 
-Module            | Links 
------------------ | ------------
-**JSDoc**         | &nbsp; - [**Documentation**](http://usejsdoc.org/)
-                  | &nbsp; - [Website](http://usejsdoc.org/)
-                  | &nbsp; - [GitHub Repository](https://github.com/jsdoc3/jsdoc)
-                  | &nbsp; - [NPM Package Page](https://www.npmjs.com/package/jsdoc)
-                  | &nbsp;
-**JSDoc-JSON**    | &nbsp; - [**Documentation**](https://github.com/tschaub/jsdoc-json#install)
-                  | &nbsp; - [GitHub Repository](https://github.com/tschaub/jsdoc-json)
-                  | &nbsp; - [NPM Package Page](https://www.npmjs.com/package/jsdoc-json)
-                  | &nbsp;
-**Loke-Theme**    | &nbsp; - [**Documentation**](https://github.com/LOKE/jsdoc-theme/blob/master/howto-jsdoc.md)
-                  | &nbsp; - [GitHub Repository](https://github.com/LOKE/jsdoc-theme)
-                  | &nbsp; - [NPM Package Page](https://www.npmjs.com/package/loke-jsdoc-theme)
-                  | &nbsp;
+Module             | Links 
+------------------ | ------------
+|**JSDoc**         | [**Documentation**](http://usejsdoc.org/)
+|                  | [Website](http://usejsdoc.org/)
+|                  | [GitHub Repository](https://github.com/jsdoc3/jsdoc)
+|                  | [NPM Package Page](https://www.npmjs.com/package/jsdoc)
+|                  |
+|**JSDoc-JSON**    | [**Documentation**](https://github.com/tschaub/jsdoc-json#install)
+|                  | [GitHub Repository](https://github.com/tschaub/jsdoc-json)
+|                  | [NPM Package Page](https://www.npmjs.com/package/jsdoc-json)
+|                  |
+|**Loke-Theme**    | [**Documentation**](https://github.com/LOKE/jsdoc-theme/blob/master/howto-jsdoc.md)
+|                  | [GitHub Repository](https://github.com/LOKE/jsdoc-theme)
+|                  | [NPM Package Page](https://www.npmjs.com/package/loke-jsdoc-theme)
+|                  |
                   
 
 #### Unit Testing Deps
 
-Module            | Links 
------------------ | ------------
-**Chai**          | &nbsp; - [**API Reference**](http://chaijs.com/api/bdd/)
-                  | &nbsp; - [Documentation](http://chaijs.com/guide/styles/#expect)
-                  | &nbsp; - [Website](http://chaijs.com/)
-                  | &nbsp; - [GitHub Repository](https://github.com/chaijs/chai)
-                  | &nbsp; - [NPM Package Page](https://www.npmjs.com/package/chai)
-                  | &nbsp;
-**Mocha**         | &nbsp; - [**Documentation**](http://mochajs.org/#getting-started)
-                  | &nbsp; - [Website](https://mochajs.org/)
-                  | &nbsp; - [GitHub Repository](https://github.com/mochajs/mocha)
-                  | &nbsp; - [NPM Package Page](https://www.npmjs.com/package/mocha)
-                  | &nbsp;
+Module             | Links 
+------------------ | ------------
+|**Chai**          | [**API Reference**](http://chaijs.com/api/bdd/)
+|                  | [Documentation](http://chaijs.com/guide/styles/#expect)
+|                  | [Website](http://chaijs.com/)
+|                  | [GitHub Repository](https://github.com/chaijs/chai)
+|                  | [NPM Package Page](https://www.npmjs.com/package/chai)
+|                  |
+|**Mocha**         | [**Documentation**](http://mochajs.org/#getting-started)
+|                  | [Website](https://mochajs.org/)
+|                  | [GitHub Repository](https://github.com/mochajs/mocha)
+|                  | [NPM Package Page](https://www.npmjs.com/package/mocha)
+|                  |
