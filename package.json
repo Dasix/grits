@@ -72,7 +72,7 @@
     "lodash": "4.0.0",
     "marked": "^0.3.5",
     "mkdirp": "0.5.1",
-    "node-sass": "^3.4.2",
+    "node-sass": "^4.14.1",
     "qooxdoo": "5.0.1",
     "sugar-glob": "1.2.2",
     "tipe": "0.1.12",
